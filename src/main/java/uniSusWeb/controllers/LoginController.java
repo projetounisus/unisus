@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+//TODO: implementar spring security
+
 @Controller
 @RequestMapping("/")
 public class LoginController {
