@@ -23,22 +23,22 @@
 		</property>
 	</bean>
 	<!--Fim Configurações de páginas-->
-	
+
 	<!--Configurações de Login-->
-	<http use-expressions="true" >
+	<!--<http use-expressions="true" >
 	        <intercept-url pattern="/login*" access="permitAll" />
 	        <intercept-url pattern="/**" access="isAuthenticated()" />
-	 
+
 	        <form-login login-page='/login.jsp'
 	            authentication-failure-url="/login.jsp?error=true"
 	            authentication-success-handler-ref="successHandler"/>
-	 
+
 	        <logout/>
-    	</http>
-	
-	<bean id="successHandler" class="uniSusWeb.controllers.LoginController"/>
+    	</http>-->
+
+<!-- 	<bean id="successHandler" class="uniSusWeb.controllers.LoginController"/> -->
 	<!--Fim Configurações de Login-->
-	
+
 	<!--Configurações de recursos-->
 	<mvc:resources mapping="/assets/**" location="/assets/"/>
 	<mvc:annotation-driven />

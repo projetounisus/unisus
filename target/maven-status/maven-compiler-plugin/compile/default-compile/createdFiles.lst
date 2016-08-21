@@ -1,2 +1,5 @@
+uniSusWeb\controllers\PerfilController.class
+uniSusWeb\beans\AbstractBean.class
+uniSusWeb\beans\User.class
 uniSusWeb\controllers\LoginController.class
 uniSusWeb\models\UserService.class

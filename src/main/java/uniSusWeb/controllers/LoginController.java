@@ -18,8 +18,7 @@ public class LoginController {
 	}
 
 	@RequestMapping("login")
-	public ResponseEntity<?> loginUser(@RequestParam String userName, @RequestParam String userPassword){
-		String responseBody = String.format("Test request\nreceived data\nuser name:%s\nuser password:%s", userName, userPassword);
-		return new ResponseEntity(responseBody, HttpStatus.OK);
+	public ModelAndView loginUser(@RequestParam String userName, @RequestParam String userPassword){
+		return new ModelAndView("redirect:mainPage");
 	}
 }

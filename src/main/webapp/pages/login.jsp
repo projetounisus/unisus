@@ -12,15 +12,14 @@
 		<link herf="<c:url value="/assets/css/normalize.css"/>" rel="stylesheet" type="text/css"/>
 
 		<script src="<c:url value="/assets/js/jquery-3.1.0.min.js"/>" type="text/javascript"></script>
-		<script src="<c:url value="/assets/js/pages/login.js"/>" type="text/javascript"></script>
 	</head>
 
 	<body>
-		<div class="login">
+		<div class="centered-div">
 			<h1>UniSus</h1>
-			<form method="post" onsubmit="uniSusWeb/login">
-				<input type="text" name="u" placeholder="Username" required="required" />
-				<input type="password" name="p" placeholder="Password" required="required" />
+			<form method="post" action="login" onsubmit="mainPage">
+				<input type="text" name="userName" placeholder="Username" required="required" />
+				<input type="password" name="userPassword" placeholder="Password" required="required" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
 			</form>
 		</div>
