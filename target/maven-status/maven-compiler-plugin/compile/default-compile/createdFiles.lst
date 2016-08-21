@@ -1,5 +1,12 @@
-uniSusWeb\controllers\PerfilController.class
+uniSusWeb\controllers\RegisterController.class
+uniSusWeb\controllers\UserController.class
 uniSusWeb\beans\AbstractBean.class
+uniSusWeb\dtos\RegisterDTO.class
+uniSusWeb\utils\ToDTOConverter.class
+uniSusWeb\model\RegisterService.class
+uniSusWeb\model\IService.class
+uniSusWeb\controllers\PerfilController.class
+uniSusWeb\model\UserService.class
 uniSusWeb\beans\User.class
-uniSusWeb\controllers\LoginController.class
-uniSusWeb\models\UserService.class
+uniSusWeb\beans\Register.class
+uniSusWeb\model\AthenticationService.class

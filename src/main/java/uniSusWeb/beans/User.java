@@ -1,8 +1,8 @@
 package uniSusWeb.beans;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class User extends AbstractBean{
 	private String userName;
 	private String userPassword;

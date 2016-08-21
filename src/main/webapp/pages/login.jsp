@@ -16,10 +16,10 @@
 
 	<body>
 		<div class="centered-div">
-			<h1>UniSus</h1>
+			<h1>UniCadSus</h1>
 			<form method="post" action="login" onsubmit="mainPage">
-				<input type="text" name="userName" placeholder="Username" required="required" />
-				<input type="password" name="userPassword" placeholder="Password" required="required" />
+				<input type="text" name="userName" placeholder="Username"/>
+				<input type="password" name="userPassword" placeholder="Password" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
 			</form>
 		</div>
