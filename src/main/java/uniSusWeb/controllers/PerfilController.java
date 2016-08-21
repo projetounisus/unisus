@@ -16,6 +16,7 @@ public class PerfilController {
 		//TODO: Obter usuário da sessão
 		User loggedUser = new User();
 		loggedUser.setId(1L);
+		loggedUser.setUserName("Nome Padrão");
 		mainPageModel.addObject("userId", loggedUser.getId());
 		mainPageModel.addObject("userName", loggedUser.getUserName());
 
