@@ -22,29 +22,39 @@
   <input type="hidden" value="${userId}" id="userId"/>
 
   <body>
-    <h2>${userName}</h2>
-    <div class="centered-div">
-      <h3>Main Page</h3>
+    <header class="main-header">
+      <nav class="navbar">
+        <!--<h2 class="item logo-unisus">UniCadSus</h2>-->
+        <h2 class="user-name-profile">${userName}</h2>
+      </nav>
+    </header>
+
+    <div>
+      <div class="centered-div">
+        <h3>Registros Recentes</h3>
+      </div>
 
       <div id="registerListContainer" class="container">
         <script id="registersList" type="text/x-handlebars-template">
           {{#each register}}
-            <div>
-              <h4><span>{{name}}</span></h4>
-            </div>
+            <div class="box box-primary">
+              <div>
+                <h4><span>{{name}}</span></h4>
+              </div>
 
-            <span><h5>Responsáveis</h5></span>
-            <div>
-              {{#each responsiblesProfissionalsNames}}
-                <span>{{this}}</span>
-              {{/each}}
-            </div>
+              <span><h4>Responsáveis</h4></span>
+              <div>
+                {{#each responsiblesProfissionalsNames}}
+                  <span>{{this}}</span>
+                {{/each}}
+              </div>
 
-            <span><h5>Pacientes</h5></span>
-            <div>
-              {{#each pacientsNames}}
-                <span>{{this}}</span>
-              {{/each}}
+              <span><h4>Pacientes</h4></span>
+              <div>
+                {{#each pacientsNames}}
+                  <span>{{this}}</span>
+                {{/each}}
+              </div>
             </div>
           {{/each}}
         </script>
