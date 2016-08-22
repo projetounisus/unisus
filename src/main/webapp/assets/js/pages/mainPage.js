@@ -7,8 +7,15 @@ function listRegisters(registers){
 
   var $registerListContainer = $("#registerListContainer");
   $registerListContainer.html(registerListContent);
-}
+  var $registersContainers = $(".register-container");
 
+  $.each($registersContainers, function(index, currentContainer){
+    $(currentContainer).accordion({
+      active: false,
+      collapsible: true
+    });
+  });
+}
 
 function constructPage(){
   var $userId = $("#userId");
