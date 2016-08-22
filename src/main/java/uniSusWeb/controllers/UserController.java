@@ -3,6 +3,8 @@ package uniSusWeb.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,13 +27,12 @@ import uniSusWeb.utils.ToDTOConverter;
 public class UserController {
 
 	@RequestMapping("/perfil")
-	public ModelAndView perfilPage(){
+	public ModelAndView perfilPage(HttpSession currentSession){
 		ModelAndView mainPageModel = new ModelAndView("mainPage");
 
 		//TODO: Obter usuário da sessão
-		User loggedUser = new User();
-		loggedUser.setId(1L);
-		loggedUser.setUserName("Nome Padrão");
+		User loggedUser = (User) currentSession.getAttribute("user");
+
 		mainPageModel.addObject("userId", loggedUser.getId());
 		mainPageModel.addObject("userName", loggedUser.getUserName());
 

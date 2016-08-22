@@ -29,8 +29,26 @@ public class UserService implements IService {
 
 	}
 
-	public List<AbstractBean> list() {
+	public List<User> list() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public User getByName(String name) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setId(1L);
+		user.setUserName(name);
+		user.setUserPassword("senha padrão");
+		return user;
+	}
+
+	public User getById(long id) {
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setId(id);
+		user.setUserName("Nome Padrão");
+		user.setUserPassword("senha padrão");
+		return user;
 	}
 }

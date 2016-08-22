@@ -33,6 +33,15 @@ public class RegisterService implements IService<Register> {
 		return null;
 	}
 
+	public Register getById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Register getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	public List<Register> listByProfissionals(List<Long> ids){
 		//TODO: Implementar pesquisa
@@ -59,5 +68,4 @@ public class RegisterService implements IService<Register> {
 
 		return registerByProfissional;
 	}
-
 }

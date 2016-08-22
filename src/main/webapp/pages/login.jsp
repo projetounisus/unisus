@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
 
@@ -22,6 +23,7 @@
 				<input type="text" name="userName" placeholder="Username"/>
 				<input type="password" name="userPassword" placeholder="Password" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
+				<span class="alert-text"><h4>${sessionResponse}</h4></span>
 			</form>
 		</div>
 	</body>
