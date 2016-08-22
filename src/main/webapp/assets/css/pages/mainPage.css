@@ -1,0 +1,12 @@
+.register-list-container{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+.item.user-name{
+	float:right;
+}
+
+.item.logo-unisus{
+	float:left;
+}
