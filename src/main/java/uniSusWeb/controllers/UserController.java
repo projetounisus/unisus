@@ -26,32 +26,33 @@ import uniSusWeb.utils.ToDTOConverter;
 //TODO: implementar spring security
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/usuario")
 public class UserController {
 
-	//FIXME: a página inicial não deve ser carregada pelo controller de usuário
-	@RequestMapping
-	public ModelAndView loginPage(){
-		return new ModelAndView("login");
+	@RequestMapping("/perfil")
+	public ModelAndView perfilPage(){
+		ModelAndView mainPageModel = new ModelAndView("mainPage");
+
+		//TODO: Obter usuário da sessão
+		User loggedUser = new User();
+		loggedUser.setId(1L);
+		loggedUser.setUserName("Nome Padrão");
+		mainPageModel.addObject("userId", loggedUser.getId());
+		mainPageModel.addObject("userName", loggedUser.getUserName());
+
+		return mainPageModel;
 	}
 
-	@RequestMapping("login")
-	public ModelAndView loginUser(@RequestParam String userName, @RequestParam String userPassword){
-		this.userService = new UserService();
-
-		//TODO: instancair usuário na sessão
-		//TODO: implementar real autenticação
-		ModelAndView modelAndView = new ModelAndView("redirect:mainPage");
-
-		return modelAndView;
-	}
-
-	@RequestMapping("usuario/{id}/Register")
+	@RequestMapping("/{id}/Register")
 	public ResponseEntity<?> getRegisters(@PathVariable(value = "id") long id){
 		this.registerService = new RegisterService();
 
 		//TODO: pegar id da sessão
-		List<Register> listByProfissionals = this.registerService.listByProfissionals(Arrays.asList(id));
+		List<Long> idsList = new ArrayList();
+		idsList.add(1L);
+		idsList.add(2L);
+		idsList.add(3L);
+		List<Register> listByProfissionals = this.registerService.listByProfissionals(idsList);
 		List<RegisterDTO> registersDTOList = new ArrayList<RegisterDTO>();
 
 		for(Register currentRegister: listByProfissionals){

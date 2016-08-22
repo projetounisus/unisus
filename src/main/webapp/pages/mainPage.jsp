@@ -9,10 +9,13 @@
   <head>
     <title>UniSus</title>
     <link href="<c:url value="/assets/3rdparty/bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css"/>
-    <link href="<c:url value="/assets/css/style.css"/>" rel="stylesheet" type="text/css"/>
-    <link herf="<c:url value="/assets/css/normalize.css"/>" rel="stylesheet" type="text/css"/>
+    <link herf="<c:url value="/assets/css/3rdparty/normalize.css"/>" rel="stylesheet" type="text/css"/>
 
-    <script src="<c:url value="/assets/js/jquery-3.1.0.min.js"/>" type="text/javascript"></script>
+    <link href="<c:url value="/assets/css/style.css"/>" rel="stylesheet" type="text/css"/>
+
+    <script src="<c:url value="/assets/js/3rdParty/jquery-3.1.0.min.js"/>" type="text/javascript"></script>
+    <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
+
     <script src="<c:url value="/assets/js/pages/mainPage.js"/>" type="text/javascript"></script>
   </head>
 
@@ -20,11 +23,24 @@
 
   <body>
     <h2>${userName}</h2>
-
     <div class="centered-div">
       <h3>Main Page</h3>
 
-      <div id="registersList"></div>
+      <div id="registerListContainer" class="container">
+        <script id="registersList" type="text/x-handlebars-template">
+          {{#each register}}
+          <div>
+            <span>{{name}}</span>
+          </div>
+          <div>
+            {{#each responsiblesProfissionalsNames}}
+              <span>responsiblesProfissionalsNames</span>
+            {{/each}}
+          </div>
+          {{/each}}
+        </script>
+      </div>
+
     </div>
   </body>
 </html>
