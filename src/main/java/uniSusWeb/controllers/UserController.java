@@ -1,6 +1,7 @@
 package uniSusWeb.controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,14 +18,13 @@ import uniSusWeb.beans.Register;
 import uniSusWeb.beans.User;
 import uniSusWeb.dtos.RegisterDTO;
 import uniSusWeb.model.RegisterService;
-import uniSusWeb.model.UserService;
 import uniSusWeb.utils.ToDTOConverter;
 
 //TODO: implementar spring security
 
 @Controller
 @RequestMapping("/usuario")
-public class UserController {
+public class UserController extends AbstractController {
 
 	@RequestMapping("/perfil")
 	public ModelAndView perfilPage(HttpSession currentSession){
@@ -43,12 +43,7 @@ public class UserController {
 	public ResponseEntity<?> getRegisters(@PathVariable(value = "id") long id){
 		this.registerService = new RegisterService();
 
-		//TODO: pegar id da sessão
-		List<Long> idsList = new ArrayList<Long>();
-		idsList.add(1L);
-		idsList.add(2L);
-		idsList.add(3L);
-		List<Register> listByProfissionals = this.registerService.listByProfissionals(idsList);
+		List<Register> listByProfissionals = this.registerService.listByProfissionals(Arrays.asList(id));
 		List<RegisterDTO> registersDTOList = new ArrayList<RegisterDTO>();
 
 		for(Register currentRegister: listByProfissionals){

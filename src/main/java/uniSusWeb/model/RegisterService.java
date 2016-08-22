@@ -44,13 +44,12 @@ public class RegisterService implements IService<Register> {
 	}
 
 	public List<Register> listByProfissionals(List<Long> ids){
+		this.userService = new UserService();
 		//TODO: Implementar pesquisa
 		List<User> profissionals = new ArrayList<User>();
 
 		for(Long id: ids){
-			User user = new User();
-			user.setId(id);
-			user.setUserName("nome Profissional " + String.valueOf(id));
+			User user = this.userService.get(id);
 			profissionals.add(user);
 		}
 
@@ -60,12 +59,26 @@ public class RegisterService implements IService<Register> {
 			Register register = new Register();
 			register.setName("registro nome padrão - " + profissional.getUserName());
 			register.setResposibleProfissionals(Arrays.asList(profissional));
+
 			User pacient = new User();
 			pacient.setUserName("teste paciente - " + register.getName());
 			register.setPacients(Arrays.asList(pacient));
+
 			registerByProfissional.add(register);
+
+			Register register2 = new Register();
+			register2.setName("registro nome padrão - " + profissional.getUserName() + "2");
+			register2.setResposibleProfissionals(Arrays.asList(profissional));
+
+			User pacient2 = new User();
+			pacient2.setUserName("teste paciente - " + register2.getName() + "2");
+			register2.setPacients(Arrays.asList(pacient2));
+
+			registerByProfissional.add(register2);
 		}
 
 		return registerByProfissional;
 	}
+
+	private UserService userService;
 }

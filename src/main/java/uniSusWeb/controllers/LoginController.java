@@ -13,7 +13,7 @@ import uniSusWeb.model.UserService;
 
 @Controller
 @RequestMapping("/")
-public class LoginController {
+public class LoginController extends AbstractController{
 	@RequestMapping
 	public ModelAndView loginPage(){
 		return new ModelAndView("login");

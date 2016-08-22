@@ -29,14 +29,23 @@
       <div id="registerListContainer" class="container">
         <script id="registersList" type="text/x-handlebars-template">
           {{#each register}}
-          <div>
-            <span>{{name}}</span>
-          </div>
-          <div>
-            {{#each responsiblesProfissionalsNames}}
-              <span>{{this}}</span>
-            {{/each}}
-          </div>
+            <div>
+              <h4><span>{{name}}</span></h4>
+            </div>
+
+            <span><h5>Responsáveis</h5></span>
+            <div>
+              {{#each responsiblesProfissionalsNames}}
+                <span>{{this}}</span>
+              {{/each}}
+            </div>
+
+            <span><h5>Pacientes</h5></span>
+            <div>
+              {{#each pacientsNames}}
+                <span>{{this}}</span>
+              {{/each}}
+            </div>
           {{/each}}
         </script>
       </div>

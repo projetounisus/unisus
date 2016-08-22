@@ -39,7 +39,7 @@ public class UserService implements IService {
 		User user = new User();
 		user.setId(1L);
 		user.setUserName(name);
-		user.setUserPassword("senha padrão");
+		user.setUserPassword("senha");
 		return user;
 	}
 
@@ -48,7 +48,7 @@ public class UserService implements IService {
 		User user = new User();
 		user.setId(id);
 		user.setUserName("Nome Padrão");
-		user.setUserPassword("senha padrão");
+		user.setUserPassword("senha");
 		return user;
 	}
 }
