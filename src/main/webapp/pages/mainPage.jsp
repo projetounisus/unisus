@@ -34,7 +34,7 @@
           </div>
           <div>
             {{#each responsiblesProfissionalsNames}}
-              <span>responsiblesProfissionalsNames</span>
+              <span>{{this}}</span>
             {{/each}}
           </div>
           {{/each}}
