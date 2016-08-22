@@ -9,4 +9,3 @@ uniSusWeb\model\IService.class
 uniSusWeb\model\UserService.class
 uniSusWeb\beans\User.class
 uniSusWeb\beans\Register.class
-uniSusWeb\model\AthenticationService.class

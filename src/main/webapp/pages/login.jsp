@@ -18,7 +18,7 @@
 	<body>
 		<div class="centered-div">
 			<h1>UniCadSus</h1>
-			<form method="post" action="login" onsubmit="mainPage">
+			<form method="post" action="login">
 				<input type="text" name="userName" placeholder="Username"/>
 				<input type="password" name="userPassword" placeholder="Password" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
