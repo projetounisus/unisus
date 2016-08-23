@@ -33,8 +33,8 @@
 
         <div class="item user-name dropdown">
           <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="loginOptions" data-toggle="dropdown">${userName}
-            <span class="caret"></span></button>
+            <div class="dropdown-toggle" type="button" id="loginOptions" data-toggle="dropdown">${userName}
+            <span class="caret"></span></div>
             <ul class="dropdown-menu item user-name dropdown" role="menu" aria-labelledby="loginOptions">
               <li role="presentation" id="logoutOption"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
             </ul>
