@@ -22,10 +22,25 @@ function constructPage(){
   var userId = $userId.val();
 
   $.ajax({url: userId + "/Register",
-        success: function(data){
-          listRegisters(data);
-        }
-      });
+    success: function(data){
+      listRegisters(data);
+    }
+  });
+
+  var logoutOpition = $("#logoutOption");
+  logoutOpition.bind("click", function(){
+    console.log("logout");
+
+    //FIXME: pode ser uma má prática, analizar melhor este método
+    window.location.assign("/uniSusWeb/usuario/logout");
+
+    /*
+    $.ajax({
+      url:"uniSusWeb/ususario/logout"
+    });
+    */
+  });
+
 }
 
 $(document).ready(constructPage);
