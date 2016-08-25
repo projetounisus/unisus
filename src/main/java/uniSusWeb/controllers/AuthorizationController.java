@@ -8,17 +8,17 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class AuthorizationController extends HandlerInterceptorAdapter {
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+	public boolean preHandle(HttpServletRequest requisicao, HttpServletResponse response, Object handler)
 			throws Exception {
 
-		HttpSession session = request.getSession();
-		boolean isNotinitialPageRequests = !(request.getRequestURI().endsWith("/") ||
-				request.getRequestURI().endsWith("/login") ||
-				request.getRequestURI().endsWith("/logout"));
-		boolean isAssetsRequest = request.getRequestURI().contains("assets");
+		HttpSession sessao = requisicao.getSession();
+		boolean isNotinitialPageRequests = !(requisicao.getRequestURI().endsWith("/") ||
+				requisicao.getRequestURI().endsWith("/login") ||
+				requisicao.getRequestURI().endsWith("/logout"));
+		boolean igualURLAssets = requisicao.getRequestURI().contains("assets");
 
-		if(session.getAttribute("user") == null && isNotinitialPageRequests){
-			if(session.getAttribute("user") == null && isAssetsRequest)
+		if(sessao.getAttribute("user") == null && isNotinitialPageRequests){
+			if(sessao.getAttribute("user") == null && igualURLAssets)
 				return true;
 
 			response.sendRedirect("logout");

@@ -29,16 +29,11 @@ function constructPage(){
 
   var logoutOpition = $("#logoutOption");
   logoutOpition.bind("click", function(){
-    console.log("logout");
 
-    //FIXME: pode ser uma má prática, analizar melhor este método
-    window.location.assign("/uniSusWeb/usuario/logout");
-
-    /*
     $.ajax({
-      url:"uniSusWeb/ususario/logout"
+      url:"/logout"
     });
-    */
+
   });
 
 }

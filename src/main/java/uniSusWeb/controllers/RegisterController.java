@@ -9,20 +9,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import uniSusWeb.beans.Register;
-import uniSusWeb.model.RegisterService;
+import uniSusWeb.beans.Registro;
+import uniSusWeb.model.ModeloRegistro;
 
 @Controller
 @RequestMapping("Register")
-public class RegisterController extends AbstractController {
+public class RegisterController extends ControllerAbstrato {
 
 	//FIXME: será substituido por mesma função no UserController
 	@RequestMapping("/profissional/{idProfissional}")
-	public ResponseEntity<?> getRegistersByProfisssional(@RequestParam Long idProfissional){
-		List<Register> registers = registerService.listByProfissionals(Arrays.asList(idProfissional));
-		return new ResponseEntity(registers, HttpStatus.OK);
+	public ResponseEntity<?> obterRegistrosPorProfissional(@RequestParam Long idProfissional){
+		List<Registro> registros = modeloRegistro.listarPorProfissional(Arrays.asList(idProfissional));
+		return new ResponseEntity(registros, HttpStatus.OK);
 	}
 
-	private RegisterService registerService;
+	private ModeloRegistro modeloRegistro;
 
 }

@@ -20,10 +20,10 @@
 		<div class="centered-div">
 			<h1>UniCadSus</h1>
 			<form method="post" action="login">
-				<input type="text" name="userName" placeholder="Username"/>
-				<input type="password" name="userPassword" placeholder="Password" />
+				<input type="text" name="nomeUsuario" placeholder="nome do usário"/>
+				<input type="password" name="senhaUsuario" placeholder="senha" />
 				<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
-				<span class="alert-text"><h4>${sessionResponse}</h4></span>
+				<span class="alert-text"><h4>${respostaLogin}</h4></span>
 			</form>
 		</div>
 	</body>

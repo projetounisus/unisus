@@ -1,6 +1,6 @@
 package uniSusWeb.beans;
 
-public class AbstractBean {
+public class BeanAbstrato {
 	private Long id;
 
 	public Long getId() {
