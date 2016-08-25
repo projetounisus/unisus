@@ -57,18 +57,18 @@
         <script id="registersList" type="text/x-handlebars-template">
           {{#each register}}
             <div class="box box-primary register-container">
-              <h3><span>{{name}}</span></h3>
+              <h3><span>{{nome}}</span></h3>
               <div>
                 <span><h4>Responsáveis</h4></span>
                 <div>
-                  {{#each responsiblesProfissionalsNames}}
+                  {{#each profissionaisResponsaveis}}
                     <span>{{this}}</span>
                   {{/each}}
                 </div>
 
                 <span><h4>Pacientes</h4></span>
                 <div>
-                  {{#each pacientsNames}}
+                  {{#each pacientes}}
                     <span>{{this}}</span>
                   {{/each}}
                 </div>

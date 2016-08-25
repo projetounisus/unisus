@@ -12,13 +12,13 @@ public class ConversorParaDto {
 		RegistroDTO dto = new RegistroDTO();
 		dto.nome = original.getNome();
 		dto.tipo = original.getTipo();
-		dto.profssionaisResponsaveis = new ArrayList<String>();
+		dto.profissionaisResponsaveis = new ArrayList<String>();
 		dto.pacientes = new ArrayList<String>();
 
 		List<Usuario> profissionaisResponsaveis = original.getProfissionaisResponsaveis();
 		for(Usuario profissionalAtual: profissionaisResponsaveis){
 			String nomeAtual = profissionalAtual.getNomeUsuario();
-			dto.profssionaisResponsaveis.add(nomeAtual);
+			dto.profissionaisResponsaveis.add(nomeAtual);
 		}
 
 		List<Usuario> pacientes = original.getProfissionaisResponsaveis();
