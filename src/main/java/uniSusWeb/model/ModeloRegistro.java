@@ -7,8 +7,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import uniSusWeb.beans.BeanAbstrato;
+import uniSusWeb.beans.ProfissionalSus;
 import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
+import uniSusWeb.beans.UsuarioComum;
 
 @Service("RegisterService")
 public class ModeloRegistro implements Modelo<Registro> {
@@ -41,21 +43,21 @@ public class ModeloRegistro implements Modelo<Registro> {
 	public List<Registro> listarPorProfissional(List<Long> ids){
 		this.userService = new ModeloUsuario();
 		//TODO: Implementar pesquisa
-		List<Usuario> profissionals = new ArrayList<Usuario>();
+		List<ProfissionalSus> profissionals = new ArrayList<ProfissionalSus>();
 
 		for(Long id: ids){
-			Usuario user = this.userService.obterPorId(id);
+			ProfissionalSus user = (ProfissionalSus)this.userService.obterPorId(id);
 			profissionals.add(user);
 		}
 
 		List<Registro> registerByProfissional = new ArrayList<Registro>();
 
-		for(Usuario profissional: profissionals){
+		for(ProfissionalSus profissional: profissionals){
 			Registro register = new Registro();
 			register.setNome("registro nome padrão - " + profissional.getNomeUsuario());
 			register.setProfissionaisResponsaveis(Arrays.asList(profissional));
 
-			Usuario pacient = new Usuario();
+			UsuarioComum pacient = new UsuarioComum();
 			pacient.setNomeUsuario("teste paciente - " + register.getNome());
 			register.setPacientes(Arrays.asList(pacient));
 
@@ -65,7 +67,7 @@ public class ModeloRegistro implements Modelo<Registro> {
 			register2.setNome("registro nome padrão - " + profissional.getNomeUsuario() + "2");
 			register2.setProfissionaisResponsaveis(Arrays.asList(profissional));
 
-			Usuario pacient2 = new Usuario();
+			UsuarioComum pacient2 = new UsuarioComum();
 			pacient2.setNomeUsuario("teste paciente - " + register2.getNome() + "2");
 			register2.setPacientes(Arrays.asList(pacient2));
 

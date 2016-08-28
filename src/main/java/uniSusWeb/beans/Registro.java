@@ -4,31 +4,31 @@ import java.util.List;
 
 public class Registro extends BeanAbstrato {
 	private String nome;
-	private String tipo;
-	private List<Usuario> profissionaisResponsaveis;
-	private List<Usuario> pacientes;
+	private RegistroTipo tipo;
+	private List<ProfissionalSus> profissionaisResponsaveis;
+	private List<UsuarioComum> pacientes;
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getTipo() {
+	public RegistroTipo getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+	public void setTipo(RegistroTipo tipo) {
 		this.tipo = tipo;
 	}
-	public List<Usuario> getProfissionaisResponsaveis() {
+	public List<ProfissionalSus> getProfissionaisResponsaveis() {
 		return profissionaisResponsaveis;
 	}
-	public void setProfissionaisResponsaveis(List<Usuario> profissionaisResponsaveis) {
+	public void setProfissionaisResponsaveis(List<ProfissionalSus> profissionaisResponsaveis) {
 		this.profissionaisResponsaveis = profissionaisResponsaveis;
 	}
-	public List<Usuario> getPacientes() {
+	public List<UsuarioComum> getPacientes() {
 		return pacientes;
 	}
-	public void setPacientes(List<Usuario> pacients) {
+	public void setPacientes(List<UsuarioComum> pacients) {
 		this.pacientes = pacients;
 	}
 
