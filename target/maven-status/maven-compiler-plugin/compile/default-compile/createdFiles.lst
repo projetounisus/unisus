@@ -4,9 +4,11 @@ uniSusWeb\beans\AgenteSaude.class
 uniSusWeb\beans\Endereco.class
 uniSusWeb\constants\Constants$UnidadeAtendimentoTipo.class
 uniSusWeb\beans\Usuario.class
+uniSusWeb\model\ModeloLogin.class
 uniSusWeb\beans\UsuarioComum.class
 uniSusWeb\beans\Enfermeira.class
 uniSusWeb\controllers\RegisterController.class
+uniSusWeb\beans\LoginUsuario.class
 uniSusWeb\dtos\RegistroDTO.class
 uniSusWeb\utils\ConversorParaDto.class
 uniSusWeb\model\Modelo.class

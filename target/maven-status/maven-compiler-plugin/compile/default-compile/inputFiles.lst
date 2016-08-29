@@ -18,9 +18,11 @@ C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\DadosMedicosAuxiliares.j
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloRegistro.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerLogin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\utils\ConversorParaDto.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloLogin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Usuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\UsuarioComum.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Endereco.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\LoginUsuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\RegistroTipo.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Registro.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\ProfissionalSus.java
