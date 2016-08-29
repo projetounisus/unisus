@@ -29,7 +29,7 @@
 
 	<!-- Configurações Interceptadores -->
 	<mvc:interceptors>
-  		<bean class="uniSusWeb.controllers.AuthorizationController" />
+  		<bean class="uniSusWeb.controllers.ControllerAutorizacao" />
 	</mvc:interceptors>
 	<!-- Fim Configurações Interceptadores -->
 </beans>

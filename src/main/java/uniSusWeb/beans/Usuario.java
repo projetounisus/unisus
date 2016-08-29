@@ -2,6 +2,9 @@ package uniSusWeb.beans;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Usuario extends BeanAbstrato{
 	private String nomeUsuario;
 	private String senhaUsuario;

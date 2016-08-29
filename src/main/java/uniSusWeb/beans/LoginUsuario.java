@@ -1,12 +1,23 @@
 package uniSusWeb.beans;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 public class LoginUsuario extends BeanAbstrato{
+	//TODO: refatorar nome, porque foi escrito assim?
+	
 	private String usuario_senha;
 	private String usuario_nome;
+	private Usuario usuario;
 	
+	@OneToOne
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usaurio) {
+		this.usuario = usaurio;
+	}
 	public String getUsuario_senha() {
 		return usuario_senha;
 	}

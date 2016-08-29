@@ -4,7 +4,6 @@ C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\UnidadeAtendimento.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\ParaMedico.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\AgenteSaude.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\Modelo.java
-C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\AuthorizationController.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerUsuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\RegisterController.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\constants\Constants.java
@@ -15,12 +14,14 @@ C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerAbstrato
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\dtos\RegistroDTO.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Admin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\DadosMedicosAuxiliares.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\DAO.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloRegistro.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerLogin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\utils\ConversorParaDto.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloLogin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Usuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\UsuarioComum.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerAutorizacao.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Endereco.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\LoginUsuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\RegistroTipo.java

@@ -15,7 +15,6 @@ uniSusWeb\model\Modelo.class
 uniSusWeb\beans\Admin.class
 uniSusWeb\beans\BeanAbstrato.class
 uniSusWeb\beans\UnidadeAtendimento.class
-uniSusWeb\controllers\AuthorizationController.class
 uniSusWeb\beans\ProfissionalSus.class
 uniSusWeb\model\ModeloRegistro.class
 uniSusWeb\beans\RegistroTipo.class
@@ -26,4 +25,6 @@ uniSusWeb\beans\Medico.class
 uniSusWeb\beans\DadosMedicosAuxiliares.class
 uniSusWeb\controllers\ControllerAbstrato.class
 uniSusWeb\controllers\ControllerUsuario.class
+uniSusWeb\model\DAO.class
+uniSusWeb\controllers\ControllerAutorizacao.class
 uniSusWeb\constants\Constants.class

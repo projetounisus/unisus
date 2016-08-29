@@ -3,12 +3,12 @@ package uniSusWeb.model;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
 import uniSusWeb.beans.LoginUsuario;
-import uniSusWeb.model.hibernateUtils.HibernateSessionFactory;
 
-public class ModeloLogin implements Modelo{
+public class ModeloLogin extends DAO{
 
 	public void deletar(long id) {
 		// TODO Auto-generated method stub
@@ -32,9 +32,15 @@ public class ModeloLogin implements Modelo{
 
 	public LoginUsuario obterPorNome(String nome) {
 		// TODO Auto-generated method stub
+		// TODO: extrair query
+		// TODO: extrair criação da sessão, evitar repetiação de código
 		String hql = "from login where nome_usuario :nome";
-		Session sessao = HibernateSessionFactory.criaNovaSessaoHibernate();
-		return sessao.createQuery(hql).setParameter("nome", nome).list();	
+		SessionFactory sessionFactory = this.getSessionFactory();
+		Session session = sessionFactory.openSession();
+		
+		LoginUsuario login = (LoginUsuario)session.createQuery(hql).setParameter("nome", nome).list().get(0);
+		
+		return login;	
 	}
 
 }
