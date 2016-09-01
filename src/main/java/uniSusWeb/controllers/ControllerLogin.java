@@ -14,45 +14,33 @@ import uniSusWeb.model.ModeloLogin;
 import uniSusWeb.model.ModeloUsuario;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class ControllerLogin extends ControllerAbstrato{
-	@RequestMapping
+	@RequestMapping("/")
 	public ModelAndView paginaLogin(){
 		return new ModelAndView("login");
 	}
 
 	@RequestMapping("login")
 	public ModelAndView logarUsuario(@RequestParam String nomeUsuario, @RequestParam String senhaUsuario, HttpSession sessao){
-		/*
-		this.userService = new ModeloUsuario();
-		Usuario userByName = userService.obterPorNome(nomeUsuario);
-		String password = userByName.getSenhaUsuario();
-
-		if(password.equals(senhaUsuario)){
-			sessao.setAttribute("user", userByName);
-			ModelAndView autorizedResponse = new ModelAndView("redirect:usuario/perfil");
-			return autorizedResponse;
-		}
-
-		ModelAndView unauthorizedResponse = new ModelAndView();
-		unauthorizedResponse.addObject("respostaLogin", "usuário ou senha incorretos");
-		return unauthorizedResponse;
-		*/
-		
+		//FIXME: não esperar mais "null", implementar tratamento de erros
 		ModeloLogin modeloLogin = new ModeloLogin();
 		LoginUsuario loginPorNome = modeloLogin.obterPorNome(nomeUsuario);
-		String usuario_senha = loginPorNome.getUsuario_senha();
 		
-		if(usuario_senha.equals(senhaUsuario)){
-			Usuario usuario = loginPorNome.getUsuario();
-			sessao.setAttribute("user", usuario);
-			ModelAndView autorizedResponse = new ModelAndView("redirect:usuario/perfil");
-			return autorizedResponse;
+		if(loginPorNome != null){
+			String usuario_senha = loginPorNome.getSenhaUsuario();
+			
+			if(usuario_senha.equals(senhaUsuario)){
+				Usuario usuario = loginPorNome.getUsuario();
+				sessao.setAttribute("user", usuario);
+				ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:usuario/perfil");
+				return respostaLoginEfetuado;
+			}
 		}
 		
-		ModelAndView unauthorizedResponse = new ModelAndView();
-		unauthorizedResponse.addObject("respostaLogin", "usuário ou senha incorretos");
-		return unauthorizedResponse;
+		ModelAndView respostaLoginFalhou = new ModelAndView();
+		respostaLoginFalhou.addObject("respostaLogin", "usuário ou senha incorretos");
+		return respostaLoginFalhou;
 	}
 
 	private ModeloUsuario userService;

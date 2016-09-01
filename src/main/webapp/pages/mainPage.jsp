@@ -21,6 +21,7 @@
     <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
     <script src="<c:url value="/assets/3rdparty/bootstrap/js/bootstrap.js"/>" type="text/javascript"></script>
 
+    <script src="<c:url value="/assets/js/utils/utils.js"/>" type="text/javascript"></script>
     <script src="<c:url value="/assets/js/pages/mainPage.js"/>" type="text/javascript"></script>
   </head>
 

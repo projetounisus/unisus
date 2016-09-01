@@ -54,21 +54,21 @@ public class ModeloRegistro implements Modelo<Registro> {
 
 		for(ProfissionalSus profissional: profissionals){
 			Registro register = new Registro();
-			register.setNome("registro nome padrão - " + profissional.getNomeUsuario());
+			register.setNome("registro nome padrão - " + profissional.getNomeCompleto());
 			register.setProfissionaisResponsaveis(Arrays.asList(profissional));
 
 			UsuarioComum pacient = new UsuarioComum();
-			pacient.setNomeUsuario("teste paciente - " + register.getNome());
+			pacient.setNomeCompleto("teste paciente - " + register.getNome());
 			register.setPacientes(Arrays.asList(pacient));
 
 			registerByProfissional.add(register);
 
 			Registro register2 = new Registro();
-			register2.setNome("registro nome padrão - " + profissional.getNomeUsuario() + "2");
+			register2.setNome("registro nome padrão - " + profissional.getNomeCompleto() + "2");
 			register2.setProfissionaisResponsaveis(Arrays.asList(profissional));
 
 			UsuarioComum pacient2 = new UsuarioComum();
-			pacient2.setNomeUsuario("teste paciente - " + register2.getNome() + "2");
+			pacient2.setNomeCompleto("teste paciente - " + register2.getNome() + "2");
 			register2.setPacientes(Arrays.asList(pacient2));
 
 			registerByProfissional.add(register2);

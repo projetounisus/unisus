@@ -21,7 +21,10 @@ function constructPage(){
   var $userId = $("#userId");
   var userId = $userId.val();
 
-  $.ajax({url: userId + "/Register",
+  var urlMethod = "/usuario/" + userId + "/Register";
+  var urlRequest = utils.buildURL(urlMethod);
+
+  $.ajax({url: urlRequest,
     success: function(data){
       listRegisters(data);
     }
@@ -31,7 +34,10 @@ function constructPage(){
   logoutOpition.bind("click", function(){
 
     $.ajax({
-      url:"/logout"
+      url:utils.buildURL("/logout"),
+      success:function(data){
+        location.reload();
+      }
     });
 
   });

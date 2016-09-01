@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping>
+ 	<class name="LoginUsuario" table="login">
+ 		<id name="id" type="int" column="idlogin">
+ 			<generator class="native"/>
+ 		</id>
+ 		
+ 		<property name="nomeUsuario" column="nome_usuario" type="string"/>
+ 		<property name="senhaUsuario" column="senha_usuario" type="string"/>
+ 	</class>
+ </hibernate-mapping>

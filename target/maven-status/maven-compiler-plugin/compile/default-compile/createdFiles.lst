@@ -7,7 +7,6 @@ uniSusWeb\beans\Usuario.class
 uniSusWeb\model\ModeloLogin.class
 uniSusWeb\beans\UsuarioComum.class
 uniSusWeb\beans\Enfermeira.class
-uniSusWeb\controllers\RegisterController.class
 uniSusWeb\beans\LoginUsuario.class
 uniSusWeb\dtos\RegistroDTO.class
 uniSusWeb\utils\ConversorParaDto.class
@@ -21,7 +20,9 @@ uniSusWeb\beans\RegistroTipo.class
 uniSusWeb\beans\Registro.class
 uniSusWeb\model\ModeloUsuario.class
 uniSusWeb\beans\Especialidade.class
+uniSusWeb\controllers\ControllerRegistro.class
 uniSusWeb\beans\Medico.class
+uniSusWeb\beans\Telefones.class
 uniSusWeb\beans\DadosMedicosAuxiliares.class
 uniSusWeb\controllers\ControllerAbstrato.class
 uniSusWeb\controllers\ControllerUsuario.class

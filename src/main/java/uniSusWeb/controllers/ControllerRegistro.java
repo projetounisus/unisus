@@ -14,7 +14,7 @@ import uniSusWeb.model.ModeloRegistro;
 
 @Controller
 @RequestMapping("Register")
-public class RegisterController extends ControllerAbstrato {
+public class ControllerRegistro extends ControllerAbstrato {
 
 	//FIXME: será substituido por mesma função no UserController
 	@RequestMapping("/profissional/{idProfissional}")

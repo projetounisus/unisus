@@ -29,12 +29,10 @@ public class ControllerUsuario extends ControllerAbstrato {
 	@RequestMapping("/perfil")
 	public ModelAndView paginaPerfil(HttpSession currentSession){
 		ModelAndView mainPageModel = new ModelAndView("mainPage");
-
-		//TODO: Obter usuário da sessão
 		Usuario loggedUser = (Usuario) currentSession.getAttribute("user");
 
 		mainPageModel.addObject("userId", loggedUser.getId());
-		mainPageModel.addObject("userName", loggedUser.getNomeUsuario());
+		mainPageModel.addObject("userName", loggedUser.getLogin().getNomeUsuario());
 
 		return mainPageModel;
 	}

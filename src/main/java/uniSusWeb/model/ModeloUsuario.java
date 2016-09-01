@@ -28,8 +28,8 @@ public class ModeloUsuario implements Modelo {
 		// TODO Auto-generated method stub
 		Usuario usuario = new Usuario();
 		usuario.setId(1L);
-		usuario.setNomeUsuario(name);
-		usuario.setSenhaUsuario("senha");
+		//usuario.setNomeUsuario(name);
+		//usuario.setSenhaUsuario("senha");
 		return usuario;
 	}
 
@@ -37,8 +37,8 @@ public class ModeloUsuario implements Modelo {
 		// TODO Auto-generated method stub
 		Usuario usuario = new Usuario();
 		usuario.setId(id);
-		usuario.setNomeUsuario("Nome Padrão");
-		usuario.setSenhaUsuario("senha");
+		//usuario.setNomeUsuario("Nome Padrão");
+		//usuario.setSenhaUsuario("senha");
 		return usuario;
 	}
 }

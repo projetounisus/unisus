@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import uniSusWeb.beans.LoginUsuario;
@@ -34,13 +35,24 @@ public class ModeloLogin extends DAO{
 		// TODO Auto-generated method stub
 		// TODO: extrair query
 		// TODO: extrair criação da sessão, evitar repetiação de código
-		String hql = "from login where nome_usuario :nome";
-		SessionFactory sessionFactory = this.getSessionFactory();
-		Session session = sessionFactory.openSession();
 		
-		LoginUsuario login = (LoginUsuario)session.createQuery(hql).setParameter("nome", nome).list().get(0);
+		String hql = "from LoginUsuario where nome_usuario = :nome";
+		Session session = this.getCurrentDBSession();
 		
-		return login;	
+		Transaction transaction = session.beginTransaction();
+		
+		Query query = session.createQuery(hql);
+		Query queryWithParameters = query.setParameter("nome", nome);
+		List results = queryWithParameters.list();
+		
+		transaction.commit();
+		
+		if(results.size() != 0){
+			LoginUsuario login = (LoginUsuario)results.get(0);
+			return login;
+		}
+		
+		return null;
 	}
 
 }

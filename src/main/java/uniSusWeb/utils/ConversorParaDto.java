@@ -22,13 +22,13 @@ public class ConversorParaDto {
 
 		List<ProfissionalSus> profissionaisResponsaveis = original.getProfissionaisResponsaveis();
 		for(Usuario profissionalAtual: profissionaisResponsaveis){
-			String nomeAtual = profissionalAtual.getNomeUsuario();
+			String nomeAtual = profissionalAtual.getNomeCompleto();
 			dto.profissionaisResponsaveis.add(nomeAtual);
 		}
 
 		List<UsuarioComum> pacientes = original.getPacientes();
 		for(Usuario pacienteAtual: pacientes){
-			String nomeAtual = pacienteAtual.getNomeUsuario();
+			String nomeAtual = pacienteAtual.getNomeCompleto();
 			dto.pacientes.add(nomeAtual);
 		}
 

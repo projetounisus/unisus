@@ -2,27 +2,48 @@ package uniSusWeb.beans;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.loader.plan.build.internal.returns.EncapsulatedEntityIdentifierDescription;
 
 @Entity
+@Table(name="usuario")
 public class Usuario extends BeanAbstrato{
-	private String nomeUsuario;
-	private String senhaUsuario;
+	
+	@Column(name = "nome_completo")
 	private String nomeCompleto;
-	private List<String> telefones;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="usuario", targetEntity = Telefones.class)
+	private List<Telefones> telefones;
+	@Column(name="cpf")
 	private String cpf;
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="usuario")
 	private Endereco enderecoResidencial;
+	@OneToOne(fetch = FetchType.LAZY, mappedBy="usuario")
+	private LoginUsuario login;
 
+	public LoginUsuario getLogin() {
+		return login;
+	}
+	public void setLogin(LoginUsuario login) {
+		this.login = login;
+	}
 	public String getNomeCompleto() {
 		return nomeCompleto;
 	}
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
 	}
-	public List<String> getTelefones() {
+	public List<Telefones> getTelefones() {
 		return telefones;
 	}
-	public void setTelefones(List<String> telefones) {
+	public void setTelefones(List<Telefones> telefones) {
 		this.telefones = telefones;
 	}
 	public String getCpf() {
@@ -31,22 +52,10 @@ public class Usuario extends BeanAbstrato{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public Endereco getEnderecoResidencial() {
-		return enderecoResidencial;
-	}
-	public void setEnderecoResidencial(Endereco enderecoResidencial) {
-		this.enderecoResidencial = enderecoResidencial;
-	}
-	public String getNomeUsuario() {
-		return nomeUsuario;
-	}
-	public void setNomeUsuario(String nomeUsusario) {
-		this.nomeUsuario = nomeUsusario;
-	}
-	public String getSenhaUsuario() {
-		return senhaUsuario;
-	}
-	public void setSenhaUsuario(String senhaUsuario) {
-		this.senhaUsuario = senhaUsuario;
-	}
+//	public Endereco getEnderecoResidencial() {
+//		return enderecoResidencial;
+//	}
+//	public void setEnderecoResidencial(Endereco enderecoResidencial) {
+//		this.enderecoResidencial = enderecoResidencial;
+//	}
 }

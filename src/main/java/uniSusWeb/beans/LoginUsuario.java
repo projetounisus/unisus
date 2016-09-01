@@ -1,33 +1,40 @@
 package uniSusWeb.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="login")
 public class LoginUsuario extends BeanAbstrato{
-	//TODO: refatorar nome, porque foi escrito assim?
-	
-	private String usuario_senha;
-	private String usuario_nome;
+	@Column(name="senha_usuario")
+	private String senhaUsuario;
+	@Column(name="nome_usuario")
+	private String nomeUsuario;
+	@OneToOne(fetch=FetchType.LAZY)
+	@PrimaryKeyJoinColumn
 	private Usuario usuario;
 	
-	@OneToOne
 	public Usuario getUsuario() {
 		return usuario;
 	}
-	public void setUsuario(Usuario usaurio) {
-		this.usuario = usaurio;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}	
+	public String getSenhaUsuario() {
+		return senhaUsuario;
 	}
-	public String getUsuario_senha() {
-		return usuario_senha;
+	public void setSenhaUsuario(String senhaUsuario) {
+		this.senhaUsuario = senhaUsuario;
 	}
-	public void setUsuario_senha(String usuario_senha) {
-		this.usuario_senha = usuario_senha;
+	
+	public String getNomeUsuario() {
+		return nomeUsuario;
 	}
-	public String getUsuario_nome() {
-		return usuario_nome;
-	}
-	public void setUsuario_nome(String usuario_nome) {
-		this.usuario_nome = usuario_nome;
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
 	}
 }

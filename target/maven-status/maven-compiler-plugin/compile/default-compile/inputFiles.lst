@@ -1,11 +1,11 @@
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloUsuario.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Enfermeira.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\UnidadeAtendimento.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Telefones.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\ParaMedico.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\AgenteSaude.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\Modelo.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerUsuario.java
-C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\RegisterController.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\constants\Constants.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Medico.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\BeanAbstrato.java
@@ -15,6 +15,7 @@ C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\dtos\RegistroDTO.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\Admin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\beans\DadosMedicosAuxiliares.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\DAO.java
+C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerRegistro.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\model\ModeloRegistro.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\controllers\ControllerLogin.java
 C:\ProjetoFinal\uniSusWeb\src\main\java\uniSusWeb\utils\ConversorParaDto.java

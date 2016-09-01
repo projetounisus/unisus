@@ -1,13 +1,34 @@
 package uniSusWeb.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
+
+@Entity
+@Table(name="endereco")
 public class Endereco extends BeanAbstrato {
+	@Column(name="pais")
 	private String pais;
+	@Column(name="estado")
 	private String estado;
+	@Column(name="cidade")
 	private String cidade;
+	@Column(name="bairro")
 	private String bairro;
+	@Column(name="rua")
 	private String rua;
+	@Null
+	@Column(name="numero", nullable=true)
 	private int numero;
+	@Column(name="complemento", nullable=true)
 	private String infoAdicional;
+	@OneToOne(fetch=FetchType.LAZY)
+	@PrimaryKeyJoinColumn
+	private Usuario usuario;
 	public String getPais() {
 		return pais;
 	}
