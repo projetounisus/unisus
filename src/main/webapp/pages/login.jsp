@@ -8,12 +8,7 @@
 <html>
 	<head>
 		<title>UniSus</title>
-		<link href="<c:url value="/assets/3rdparty/bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css"/>
-		<link herf="<c:url value="/assets/css/3rdparty/normalize.css"/>" rel="stylesheet" type="text/css"/>
-
-		<link href="<c:url value="/assets/css/style.css"/>" rel="stylesheet" type="text/css"/>
-
-		<script src="<c:url value="/assets/js/jquery-3.1.0.min.js"/>" type="text/javascript"></script>
+		<%@ include file="/pages/templateTiles/defaultHeader.jsp" %>
 	</head>
 
 	<body>
