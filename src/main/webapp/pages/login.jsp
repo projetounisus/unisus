@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<title>UniSus</title>
-		<%@ include file="/pages/templateTiles/defaultHeader.jsp" %>
+		<%@ include file="/pages/templateTiles/defaultHead.jsp" %>
 	</head>
 
 	<body>
