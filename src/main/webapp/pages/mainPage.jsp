@@ -11,6 +11,8 @@
 	  <%@ include file="/pages/templateTiles/defaultHead.jsp" %>
 
     <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
+    
+    <script src="<c:url value="/assets/js/pages/mainPage.js"/>" type="text/javascript"></script>
 
     <link href="<c:url value="/assets/css/pages/mainPage.css"/>" rel="stylesheet" type="text/css"/>
     <link href="<c:url value="/assets/css/pages/templates/register.css"/>" rel="stylesheet" type="text/css"/>

@@ -1,4 +1,5 @@
 <link href="<c:url value="/assets/css/pages/templates/header.css"/>" rel="stylesheet" type="text/css"/>
+<script src="<c:url value="/assets/js/pages/templates/header.js"/>" type="text/javascript"></script>
 
 <header class="main-header">
       <nav class="navbar">
