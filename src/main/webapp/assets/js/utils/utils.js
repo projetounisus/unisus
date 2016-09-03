@@ -1,6 +1,5 @@
 var Utils = function(){
   function _buildURL(urlMethod){
-    //var baseURL = window.location.protocol + window.location.host;
     return "/uniSusWeb" + urlMethod;
   }
 
