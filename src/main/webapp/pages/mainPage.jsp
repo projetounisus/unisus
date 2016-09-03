@@ -8,17 +8,19 @@
 <html>
   <head>
     <title>UniSus</title>
-	<%@ include file="/pages/templateTiles/defaultHead.jsp" %>
+	  <%@ include file="/pages/templateTiles/defaultHead.jsp" %>
+
+    <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
+
+    <link href="<c:url value="/assets/css/pages/mainPage.css"/>" rel="stylesheet" type="text/css"/>
+    <link href="<c:url value="/assets/css/pages/templates/register.css"/>" rel="stylesheet" type="text/css"/>
   </head>
 
   <input type="hidden" value="${userId}" id="userId"/>
 
   <body>
-   	<%@ include file="/pages/templateTiles/defaultHeader.jsp" %>	
+   	<%@ include file="/pages/templateTiles/defaultHeader.jsp" %>
    	<div class="centered-div-horizontal">
-
-      <!--centered-div-adaptive-->
-
       <div>
         <h3>Registros Recentes</h3>
       </div>

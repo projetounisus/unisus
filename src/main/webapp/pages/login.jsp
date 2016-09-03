@@ -9,6 +9,8 @@
 	<head>
 		<title>UniSus</title>
 		<%@ include file="/pages/templateTiles/defaultHead.jsp" %>
+
+		<link href="<c:url value="/assets/css/pages/login.css"/>" rel="stylesheet" type="text/css"/>
 	</head>
 
 	<body>
