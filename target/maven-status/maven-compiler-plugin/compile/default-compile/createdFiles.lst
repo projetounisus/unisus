@@ -20,6 +20,7 @@ uniSusWeb\beans\RegistroTipo.class
 uniSusWeb\beans\Registro.class
 uniSusWeb\model\ModeloUsuario.class
 uniSusWeb\beans\Especialidade.class
+uniSusWeb\controllers\ControllerRest.class
 uniSusWeb\controllers\ControllerRegistro.class
 uniSusWeb\beans\Medico.class
 uniSusWeb\beans\Telefones.class
