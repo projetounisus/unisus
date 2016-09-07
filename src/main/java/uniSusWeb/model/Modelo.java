@@ -3,6 +3,7 @@ package uniSusWeb.model;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import uniSusWeb.beans.BeanAbstrato;
@@ -21,19 +22,23 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 	
 	public void deletar(T bean){ 
 		Session sessao = this.obterSessaoBanco();
+		Transaction transacao = sessao.beginTransaction();
 		
 		sessao.delete(bean);
 		
+		transacao.commit();
 		this.fecharSessaoBanco(sessao);
 	}
 
 	public void atualizar(T bean){
 		Session sessao = this.obterSessaoBanco();
+		Transaction transacao = sessao.beginTransaction();
 		
 		String hql = obterQueryAtualizar();
 		Query query = sessao.createQuery(hql);
 		query.executeUpdate();
 		
+		transacao.commit();
 		this.fecharSessaoBanco(sessao);
 	}
 
@@ -47,10 +52,21 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 		return lista;
 	}
 	
+	public void inserir(T bean){
+		Session sessao = this.obterSessaoBanco();
+		Transaction transacao = sessao.beginTransaction();
+		
+		sessao.save(bean);
+		
+		transacao.commit();
+		this.fecharSessaoBanco(sessao);
+	}
+	
 	//TODO: Extrair mensagens de erro
 	
 	public T obterPorId(long id) throws Exception{
 		Session sessao = this.obterSessaoBanco();
+		Transaction transacao = sessao.beginTransaction();
 		int PRIMEIRO_ELEMENTO = 0;
 		
 		String hql = obterQueryObterPorId();
@@ -59,6 +75,7 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 		query.setParameter("id", id);
 		List lista = query.getResultList();
 
+		transacao.commit();
 		this.fecharSessaoBanco(sessao);
 		
 		if(lista.size() < 1){
@@ -73,6 +90,7 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 
 	public T obterPorNome(String nome) throws Exception{
 		Session sessao = this.obterSessaoBanco();
+		Transaction transacao = sessao.beginTransaction();
 		int PRIMEIRO_ELEMENTO = 0;
 		
 		String hql = obterQueryObterPorNome();
@@ -81,6 +99,7 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 		query.setParameter("nome", nome);
 		List lista = query.getResultList();
 		
+		transacao.commit();
 		this.fecharSessaoBanco(sessao);
 		
 		if(lista.size() < 1){

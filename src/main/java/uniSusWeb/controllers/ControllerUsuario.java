@@ -51,9 +51,6 @@ public class ControllerUsuario extends ControllerRest<UsuarioComum> {
 //			dtos.add(ConversorParaDto.fromRegister(registroAtual));
 //		}
 		
-		Modelo<UsuarioComum> modelo = obterModelo();
-		
-		
 		//ResponseEntity resposta = new ResponseEntity(dtos, HttpStatus.OK);
 		ResponseEntity resposta = new ResponseEntity("mock", HttpStatus.OK);
 		return resposta;
