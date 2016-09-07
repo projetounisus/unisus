@@ -12,70 +12,31 @@ import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
 import uniSusWeb.beans.UsuarioComum;
 
-@Service("RegisterService")
-public class ModeloRegistro implements Modelo<Registro> {
+@Service("modeloRegistro")
+public class ModeloRegistro extends Modelo<Registro> {
 
-	public void deletar(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void atualizar(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public List<Registro> listar() {
-		// TODO Auto-generated method stub
+	@Override
+	protected String obterQueryDeletar() {
 		return null;
 	}
 
-	public Registro obterPorId(long id) {
-		// TODO Auto-generated method stub
+	@Override
+	protected String obterQueryAtualizar() {
 		return null;
 	}
 
-	public Registro obterPorNome(String name) {
-		// TODO Auto-generated method stub
+	@Override
+	protected String obterQueryListar() {
 		return null;
 	}
 
-	public List<Registro> listarPorProfissional(List<Long> ids){
-		this.userService = new ModeloUsuario();
-		//TODO: Implementar pesquisa
-		List<ProfissionalSus> profissionals = new ArrayList<ProfissionalSus>();
-
-		for(Long id: ids){
-			ProfissionalSus user = (ProfissionalSus)this.userService.obterPorId(id);
-			profissionals.add(user);
-		}
-
-		List<Registro> registerByProfissional = new ArrayList<Registro>();
-
-		for(ProfissionalSus profissional: profissionals){
-			Registro register = new Registro();
-			register.setNome("registro nome padrão - " + profissional.getNomeCompleto());
-			register.setProfissionaisResponsaveis(Arrays.asList(profissional));
-
-			UsuarioComum pacient = new UsuarioComum();
-			pacient.setNomeCompleto("teste paciente - " + register.getNome());
-			register.setPacientes(Arrays.asList(pacient));
-
-			registerByProfissional.add(register);
-
-			Registro register2 = new Registro();
-			register2.setNome("registro nome padrão - " + profissional.getNomeCompleto() + "2");
-			register2.setProfissionaisResponsaveis(Arrays.asList(profissional));
-
-			UsuarioComum pacient2 = new UsuarioComum();
-			pacient2.setNomeCompleto("teste paciente - " + register2.getNome() + "2");
-			register2.setPacientes(Arrays.asList(pacient2));
-
-			registerByProfissional.add(register2);
-		}
-
-		return registerByProfissional;
+	@Override
+	protected String obterQueryObterPorNome() {
+		return null;
 	}
 
-	private ModeloUsuario userService;
+	@Override
+	protected String obterQueryObterPorId() {
+		return null;
+	}
 }

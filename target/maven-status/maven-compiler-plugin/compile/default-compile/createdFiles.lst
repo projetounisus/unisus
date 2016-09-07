@@ -5,6 +5,7 @@ uniSusWeb\beans\Endereco.class
 uniSusWeb\constants\Constants$UnidadeAtendimentoTipo.class
 uniSusWeb\beans\Usuario.class
 uniSusWeb\model\ModeloLogin.class
+uniSusWeb\controllers\ControllerUniSusWeb.class
 uniSusWeb\beans\UsuarioComum.class
 uniSusWeb\beans\Enfermeira.class
 uniSusWeb\beans\LoginUsuario.class

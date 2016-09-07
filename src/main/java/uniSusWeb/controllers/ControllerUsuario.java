@@ -39,16 +39,17 @@ public class ControllerUsuario extends ControllerAbstrato {
 
 	@RequestMapping("/{id}/Register")
 	public ResponseEntity<?> obterRegistros(@PathVariable(value = "id") long id){
-		this.modeloRegistros = new ModeloRegistro();
+//		this.modeloRegistros = new ModeloRegistro();
+//
+//		List<Registro> regsitrosPorProfissional = this.modeloRegistros.listarPorProfissional(Arrays.asList(id));
+//		List<RegistroDTO> dtos = new ArrayList<RegistroDTO>();
+//
+//		for(Registro registroAtual: regsitrosPorProfissional){
+//			dtos.add(ConversorParaDto.fromRegister(registroAtual));
+//		}
 
-		List<Registro> regsitrosPorProfissional = this.modeloRegistros.listarPorProfissional(Arrays.asList(id));
-		List<RegistroDTO> dtos = new ArrayList<RegistroDTO>();
-
-		for(Registro registroAtual: regsitrosPorProfissional){
-			dtos.add(ConversorParaDto.fromRegister(registroAtual));
-		}
-
-		ResponseEntity resposta = new ResponseEntity(dtos, HttpStatus.OK);
+		//ResponseEntity resposta = new ResponseEntity(dtos, HttpStatus.OK);
+		ResponseEntity resposta = new ResponseEntity("mock", HttpStatus.OK);
 		return resposta;
 	}
 

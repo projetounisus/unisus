@@ -7,38 +7,31 @@ import org.springframework.stereotype.Service;
 import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.beans.Usuario;
 
-public class ModeloUsuario implements Modelo {
+@Service("modeloUsuario")
+public class ModeloUsuario extends Modelo {
 
-	public void deletar(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void atualizar(long id) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public List<Usuario> listar() {
-		// TODO Auto-generated method stub
+	@Override
+	protected String obterQueryDeletar() {
 		return null;
 	}
 
-	public Usuario obterPorNome(String name) {
-		// TODO Auto-generated method stub
-		Usuario usuario = new Usuario();
-		usuario.setId(1L);
-		//usuario.setNomeUsuario(name);
-		//usuario.setSenhaUsuario("senha");
-		return usuario;
+	@Override
+	protected String obterQueryAtualizar() {
+		return null;
 	}
 
-	public Usuario obterPorId(long id) {
-		// TODO Auto-generated method stub
-		Usuario usuario = new Usuario();
-		usuario.setId(id);
-		//usuario.setNomeUsuario("Nome Padrão");
-		//usuario.setSenhaUsuario("senha");
-		return usuario;
+	@Override
+	protected String obterQueryListar() {
+		return null;
+	}
+
+	@Override
+	protected String obterQueryObterPorNome() {
+		return null;
+	}
+
+	@Override
+	protected String obterQueryObterPorId() {
+		return null;
 	}
 }
