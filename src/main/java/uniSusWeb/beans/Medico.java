@@ -5,7 +5,7 @@ import java.util.List;
 public class Medico extends ProfissionalSus {
 	private String crm;
 	private List<Especialidade> especialidades;
-	private UnidadeAtendimento unidadeAtendimento;
+	private UnidadeSaude unidadeAtendimento;
 	public String getCrm() {
 		return crm;
 	}
@@ -18,10 +18,10 @@ public class Medico extends ProfissionalSus {
 	public void setEspecialidades(List<Especialidade> especialidades) {
 		this.especialidades = especialidades;
 	}
-	public UnidadeAtendimento getUnidadeAtendimento() {
+	public UnidadeSaude getUnidadeAtendimento() {
 		return unidadeAtendimento;
 	}
-	public void setUnidadeAtendimento(UnidadeAtendimento unidadeAtendimento) {
+	public void setUnidadeAtendimento(UnidadeSaude unidadeAtendimento) {
 		this.unidadeAtendimento = unidadeAtendimento;
 	}
 }

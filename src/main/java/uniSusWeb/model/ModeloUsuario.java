@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import uniSusWeb.beans.BeanAbstrato;
+import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
 
 @Service("modeloUsuario")
@@ -34,4 +34,9 @@ public class ModeloUsuario extends Modelo {
 	protected String obterQueryObterPorId() {
 		return null;
 	}
+	
+	public List<Registro> obterRegistroPorPorfissional(Usuario usuario){
+		return null;
+	}
+	
 }

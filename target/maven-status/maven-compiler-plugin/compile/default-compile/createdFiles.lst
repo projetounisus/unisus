@@ -14,7 +14,6 @@ uniSusWeb\utils\ConversorParaDto.class
 uniSusWeb\model\Modelo.class
 uniSusWeb\beans\Admin.class
 uniSusWeb\beans\BeanAbstrato.class
-uniSusWeb\beans\UnidadeAtendimento.class
 uniSusWeb\beans\ProfissionalSus.class
 uniSusWeb\model\ModeloRegistro.class
 uniSusWeb\beans\RegistroTipo.class
@@ -22,6 +21,7 @@ uniSusWeb\beans\Registro.class
 uniSusWeb\model\ModeloUsuario.class
 uniSusWeb\beans\Especialidade.class
 uniSusWeb\controllers\ControllerRest.class
+uniSusWeb\beans\UnidadeSaude.class
 uniSusWeb\controllers\ControllerRegistro.class
 uniSusWeb\beans\Medico.class
 uniSusWeb\beans\Telefones.class

@@ -14,6 +14,8 @@ public class LoginUsuario extends BeanAbstrato{
 	private String senhaUsuario;
 	@Column(name="nome_usuario")
 	private String nomeUsuario;
+	
+	//chaves estrangeiras (inversa)
 	@OneToOne(fetch=FetchType.LAZY)
 	@PrimaryKeyJoinColumn
 	private Usuario usuario;

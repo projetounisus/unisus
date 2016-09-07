@@ -4,17 +4,17 @@ import java.util.List;
 
 public class ProfissionalSus extends Usuario{
 	private List<Endereco> enderecoTrabalho;
-	private UnidadeAtendimento unidadeAtendimento;
+	private UnidadeSaude unidadeAtendimento;
 	public List<Endereco> getEnderecoTrabalho() {
 		return enderecoTrabalho;
 	}
 	public void setEnderecoTrabalho(List<Endereco> enderecoTrabalho) {
 		this.enderecoTrabalho = enderecoTrabalho;
 	}
-	public UnidadeAtendimento getUnidadeAtendimento() {
+	public UnidadeSaude getUnidadeAtendimento() {
 		return unidadeAtendimento;
 	}
-	public void setUnidadeAtendimento(UnidadeAtendimento unidadeAtendimento) {
+	public void setUnidadeAtendimento(UnidadeSaude unidadeAtendimento) {
 		this.unidadeAtendimento = unidadeAtendimento;
 	}
 }

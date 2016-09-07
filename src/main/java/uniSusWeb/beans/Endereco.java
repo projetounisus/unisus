@@ -26,9 +26,7 @@ public class Endereco extends BeanAbstrato {
 	private int numero;
 	@Column(name="complemento", nullable=true)
 	private String infoAdicional;
-	@OneToOne(fetch=FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	private Usuario usuario;
+	
 	public String getPais() {
 		return pais;
 	}

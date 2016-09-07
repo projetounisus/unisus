@@ -16,15 +16,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
+import uniSusWeb.beans.UsuarioComum;
 import uniSusWeb.dtos.RegistroDTO;
+import uniSusWeb.model.Modelo;
 import uniSusWeb.model.ModeloRegistro;
+import uniSusWeb.model.ModeloUsuario;
 import uniSusWeb.utils.ConversorParaDto;
 
 //TODO: implementar spring security
 
 @Controller
 @RequestMapping("/usuario")
-public class ControllerUsuario extends ControllerAbstrato {
+public class ControllerUsuario extends ControllerRest<UsuarioComum> {
 
 	@RequestMapping("/perfil")
 	public ModelAndView paginaPerfil(HttpSession currentSession){
@@ -47,11 +50,20 @@ public class ControllerUsuario extends ControllerAbstrato {
 //		for(Registro registroAtual: regsitrosPorProfissional){
 //			dtos.add(ConversorParaDto.fromRegister(registroAtual));
 //		}
-
+		
+		Modelo<UsuarioComum> modelo = obterModelo();
+		
+		
 		//ResponseEntity resposta = new ResponseEntity(dtos, HttpStatus.OK);
 		ResponseEntity resposta = new ResponseEntity("mock", HttpStatus.OK);
 		return resposta;
 	}
 
 	private ModeloRegistro modeloRegistros;
+
+	@Override
+	protected Modelo<UsuarioComum> obterModelo() {
+		// TODO Auto-generated method stub
+		return new ModeloUsuario();
+	}
 }

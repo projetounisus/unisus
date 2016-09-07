@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -23,9 +24,13 @@ public class Usuario extends BeanAbstrato{
 	private List<Telefones> telefones;
 	@Column(name="cpf")
 	private String cpf;
-	@OneToOne(fetch = FetchType.LAZY, mappedBy="usuario")
+	
+	// chaves estrangeiras
+	@OneToOne
+	@JoinColumn(name="endereco_idendereco")
 	private Endereco enderecoResidencial;
-	@OneToOne(fetch = FetchType.LAZY, mappedBy="usuario")
+	@OneToOne
+	@JoinColumn(name="login_idlogin")
 	private LoginUsuario login;
 
 	public LoginUsuario getLogin() {
@@ -52,10 +57,4 @@ public class Usuario extends BeanAbstrato{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-//	public Endereco getEnderecoResidencial() {
-//		return enderecoResidencial;
-//	}
-//	public void setEnderecoResidencial(Endereco enderecoResidencial) {
-//		this.enderecoResidencial = enderecoResidencial;
-//	}
 }

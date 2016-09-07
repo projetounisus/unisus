@@ -18,6 +18,7 @@
 		<mapping class="uniSusWeb.beans.Usuario"></mapping>
 		<mapping class="uniSusWeb.beans.Endereco"></mapping>
 		<mapping class="uniSusWeb.beans.Telefones"></mapping>
+		<mapping class="uniSusWeb.beans.UnidadeSaude"></mapping>
 								
 <!-- 		<property name="packagesToScan">uniSusWeb.beans</property>  -->
 	</session-factory>
