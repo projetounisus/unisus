@@ -15,28 +15,34 @@ import uniSusWeb.model.ModeloLogin;
 import uniSusWeb.model.ModeloUsuario;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class ControllerUniSusWeb extends ControllerAbstrato{
-	@RequestMapping
+	@RequestMapping("/")
 	public ModelAndView paginaLogin(){
 		return new ModelAndView("login");
 	}
 
-	@RequestMapping("login")
-	public ModelAndView logarUsuario(@RequestParam String nomeUsuario, @RequestParam String senhaUsuario, HttpSession sessao) throws Exception{
-		//FIXME: não esperar mais "null", implementar tratamento de erros
+	//TODO: Extrair tratamento de erro
+	@RequestMapping("/login")
+	public ModelAndView logarUsuario(@RequestParam String nomeUsuario, @RequestParam String senhaUsuario, HttpSession sessao){
 		ModeloLogin modeloLogin = new ModeloLogin();
-		LoginUsuario loginPorNome = modeloLogin.obterPorNome(nomeUsuario);
+		LoginUsuario loginPorNome;
 		
-		if(loginPorNome != null){
-			String usuario_senha = loginPorNome.getSenhaUsuario();
-			
-			if(usuario_senha.equals(senhaUsuario)){
-				Usuario usuario = loginPorNome.getUsuario();
-				sessao.setAttribute("user", usuario);
-				ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:usuario/perfil");
-				return respostaLoginEfetuado;
-			}
+		try{
+			loginPorNome = modeloLogin.obterPorNome(nomeUsuario);
+		}catch(Exception e){
+			ModelAndView respostaLoginFalhou = new ModelAndView();
+			respostaLoginFalhou.addObject("respostaLogin", e.getMessage());
+			return respostaLoginFalhou;
+		}
+		
+		String usuario_senha = loginPorNome.getSenhaUsuario();
+		
+		if(usuario_senha.equals(senhaUsuario)){
+			Usuario usuario = loginPorNome.getUsuario();
+			sessao.setAttribute("user", usuario);
+			ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:usuario/perfil");
+			return respostaLoginEfetuado;
 		}
 		
 		ModelAndView respostaLoginFalhou = new ModelAndView();

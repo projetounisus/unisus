@@ -4,7 +4,13 @@ import java.util.List;
 
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,52 +18,51 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.model.Modelo;
 
-/*
- * Responsável pelo mapeamento REST.
- * Consiste em fornecer as funções de um CRUD para um certo dado (Bean no nosso caso) 
- * mapeando tais funções cóm URLs específicas e tipos específicos, ou seja, fornece a funções de buscar(obter), 
- * listar, deleter e atualizar.
- * As URLs são:
- * obter: url = nomeDoDado/idDoDado, tipo = GET
- * listar: url = nomeDoDado, tipo = GET
- * atualizar: url = nomeDoDado/idDoDao, tipo = PUT (sendo id idDoDado uma variável de URL, devem ser passados os dados 
- * a serem atulizados no corpo da requisição, deve-se analisar a requisição feita pela página)
- * deletar: url = nomeDoDado/idDoDado, tipo = DELETE
- * criar: url = nomeDoDado, tipo = POST
- * 
- * É possível ver que nas URLs não existe nomeDoDado, pois ele é obtido na herança que é feita com outro
- * Controller
- * */
 public abstract class ControllerRest <T extends BeanAbstrato> extends ControllerAbstrato{
-	@RequestMapping(name= "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public T obter(@PathVariable Long id) throws Exception{
+	@GetMapping("/{id}")
+	public ResponseEntity<T> obter(@PathVariable Long id) throws Exception{
 		Modelo<T> modelo = this.obterModelo();
-		return modelo.obterPorId(id);
+		
+		T resultado = modelo.obterPorId(id);
+		ResponseEntity<T> resposta = new ResponseEntity<T>(resultado, HttpStatus.OK);
+		
+		return resposta;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public List<T> listar(){
+	@GetMapping
+	public ResponseEntity<?> listar(){
 		 Modelo<T> modelo = obterModelo();
-		 return modelo.listar();
+		 
+		 List<T> lista = modelo.listar();
+		 ResponseEntity<List<T>> resultado = new ResponseEntity<List<T>>(lista, HttpStatus.OK);
+		 
+		 return resultado;
 	}
 	
-	@RequestMapping(name="/{id}", method = RequestMethod.POST)
-	public void deletar(@RequestBody T bean){
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deletar(@PathVariable Long id) throws Exception{
 		Modelo<T> modelo = obterModelo();
 		
+		T bean = modelo.obterPorId(id);
 		modelo.deletar(bean);
+		
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT)
-	public void atualizar(@RequestBody T bean){
+	@PutMapping
+	public ResponseEntity<?> atualizar(@RequestBody T bean){
 		Modelo<T> modelo = obterModelo();
 		modelo.atualizar(bean);
+		
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public void criar(@RequestBody T bean){
+	@PostMapping
+	public ResponseEntity<?> criar(@RequestBody T bean){
 		Modelo<T> modelo = this.obterModelo();
 		modelo.inserir(bean);
+		
+		return new ResponseEntity(HttpStatus.OK);
 	}
 	
 	protected abstract Modelo<T> obterModelo();

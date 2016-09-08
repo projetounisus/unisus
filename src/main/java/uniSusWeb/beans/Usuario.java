@@ -8,11 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.loader.plan.build.internal.returns.EncapsulatedEntityIdentifierDescription;
 
 @Entity
 @Table(name="usuario")
@@ -30,7 +26,7 @@ public class Usuario extends BeanAbstrato{
 	@JoinColumn(name="endereco_idendereco")
 	private Endereco enderecoResidencial;
 	@OneToOne
-	@JoinColumn(name="login_idlogin")
+	@JoinColumn(name="id_login")
 	private LoginUsuario login;
 
 	public LoginUsuario getLogin() {

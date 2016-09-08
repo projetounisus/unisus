@@ -103,9 +103,9 @@ public abstract class Modelo<T extends BeanAbstrato> extends DAO{
 		this.fecharSessaoBanco(sessao);
 		
 		if(lista.size() < 1){
-			throw new Exception("Id anão foi encontrado");
+			throw new Exception("Nome não foi encontrado");
 		}else if(lista.size() > 1){
-			throw new Exception("Existe ids repetidos");
+			throw new Exception("Existem nomes repetidos");
 		}else{
 			T bean = (T)lista.get(PRIMEIRO_ELEMENTO);
 			return bean;
