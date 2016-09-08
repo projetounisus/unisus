@@ -57,7 +57,7 @@ public abstract class ControllerRest <T extends BeanAbstrato> extends Controller
 	@RequestMapping(method = RequestMethod.POST)
 	public void criar(@RequestBody T bean){
 		Modelo<T> modelo = this.obterModelo();
-		modelo.
+		modelo.inserir(bean);
 	}
 	
 	protected abstract Modelo<T> obterModelo();
