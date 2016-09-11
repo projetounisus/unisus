@@ -18,8 +18,18 @@ import uniSusWeb.model.ModeloUsuario;
 @RequestMapping
 public class ControllerUniSusWeb extends ControllerAbstrato{
 	@RequestMapping("/")
-	public ModelAndView paginaLogin(){
-		return new ModelAndView("login");
+	public ModelAndView paginaLogin(HttpSession sessao){
+		Object usuario = sessao.getAttribute("user");
+		
+		if(usuario == null)
+			return new ModelAndView("login");
+		
+		Usuario usuarioLogado = (Usuario)usuario;
+		ModelAndView mainPage = new ModelAndView("mainPage");
+		mainPage.addObject("userId", usuarioLogado.getId());
+		mainPage.addObject("userName", usuarioLogado.getLogin().getNomeUsuario());
+		
+		return mainPage;
 	}
 
 	//TODO: Extrair tratamento de erro
@@ -41,7 +51,7 @@ public class ControllerUniSusWeb extends ControllerAbstrato{
 		if(usuario_senha.equals(senhaUsuario)){
 			Usuario usuario = loginPorNome.getUsuario();
 			sessao.setAttribute("user", usuario);
-			ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:usuario/perfil");
+			ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:/");
 			return respostaLoginEfetuado;
 		}
 		

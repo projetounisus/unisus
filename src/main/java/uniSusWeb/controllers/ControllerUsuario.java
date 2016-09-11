@@ -29,17 +29,6 @@ import uniSusWeb.utils.ConversorParaDto;
 @RequestMapping("/usuario")
 public class ControllerUsuario extends ControllerRest<UsuarioComum> {
 
-	@RequestMapping("/perfil")
-	public ModelAndView paginaPerfil(HttpSession currentSession){
-		ModelAndView mainPageModel = new ModelAndView("mainPage");
-		Usuario loggedUser = (Usuario) currentSession.getAttribute("user");
-
-		mainPageModel.addObject("userId", loggedUser.getId());
-		mainPageModel.addObject("userName", loggedUser.getLogin().getNomeUsuario());
-
-		return mainPageModel;
-	}
-
 	@RequestMapping("/{id}/Register")
 	public ResponseEntity<?> obterRegistros(@PathVariable(value = "id") long id){
 //		this.modeloRegistros = new ModeloRegistro();

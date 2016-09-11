@@ -24,6 +24,7 @@ uniSusWeb\controllers\ControllerRest.class
 uniSusWeb\beans\UnidadeSaude.class
 uniSusWeb\controllers\ControllerRegistro.class
 uniSusWeb\beans\Medico.class
+uniSusWeb\controllers\ControllerTiles.class
 uniSusWeb\beans\Telefones.class
 uniSusWeb\beans\DadosMedicosAuxiliares.class
 uniSusWeb\controllers\ControllerAbstrato.class
