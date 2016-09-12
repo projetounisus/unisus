@@ -27,8 +27,15 @@ import uniSusWeb.utils.ConversorParaDto;
 
 @Controller
 @RequestMapping("/usuario")
-public class ControllerUsuario extends ControllerRest<UsuarioComum> {
+public class ControllerUsuario extends ControllerRest<Usuario> {
 
+	@RequestMapping("/editar/{id}")
+	public ModelAndView editar(@PathVariable Long id){
+			ModelAndView editPage = new ModelAndView("templateTiles/form");
+			editPage.addObject("userId", id);
+			return editPage;
+	}
+	
 	@RequestMapping("/{id}/Register")
 	public ResponseEntity<?> obterRegistros(@PathVariable(value = "id") long id){
 //		this.modeloRegistros = new ModeloRegistro();
@@ -48,7 +55,7 @@ public class ControllerUsuario extends ControllerRest<UsuarioComum> {
 	private ModeloRegistro modeloRegistros;
 
 	@Override
-	protected Modelo<UsuarioComum> obterModelo() {
+	protected Modelo<Usuario> obterModelo() {
 		// TODO Auto-generated method stub
 		return new ModeloUsuario();
 	}

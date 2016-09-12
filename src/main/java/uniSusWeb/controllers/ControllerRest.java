@@ -1,5 +1,6 @@
 package uniSusWeb.controllers;
 
+import java.net.Authenticator.RequestorType;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -8,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -49,8 +51,8 @@ public abstract class ControllerRest <T extends BeanAbstrato> extends Controller
 		return new ResponseEntity(HttpStatus.OK);
 	}
 	
-	@PutMapping
-	public ResponseEntity<?> atualizar(@RequestBody T bean){
+	@PostMapping("/{id}")
+	public ResponseEntity<?> atualizar(@PathVariable long id, @ModelAttribute T bean){
 		Modelo<T> modelo = obterModelo();
 		modelo.atualizar(bean);
 		
