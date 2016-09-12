@@ -11,6 +11,7 @@
             	${userName}
             	<span class="caret"></span></div>
             <ul class="dropdown-menu item user-name dropdown" role="menu" aria-labelledby="loginOptions">
+              <li role="presentation" id="editarOption"><a role="menuitem" tabindex="-1" href="#">Editar</a></li>
               <li role="presentation" id="logoutOption"><a role="menuitem" tabindex="-1" href="#">Logout</a></li>
             </ul>
           </div>

@@ -8,7 +8,7 @@
 <html>
   <head>
     <title>UniSus</title>
-	  <%@ include file="/pages/templateTiles/defaultHead.jsp" %>
+	 <%@ include file="/pages/templateTiles/defaultHead.jsp" %>
 
     <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
     
