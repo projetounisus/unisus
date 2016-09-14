@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.model.Modelo;
@@ -52,7 +53,7 @@ public abstract class ControllerRest <T extends BeanAbstrato> extends Controller
 	}
 	
 	@PostMapping("/{id}")
-	public ResponseEntity<?> atualizar(@PathVariable long id, @ModelAttribute T bean){
+	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody T bean){
 		Modelo<T> modelo = obterModelo();
 		modelo.atualizar(bean);
 		

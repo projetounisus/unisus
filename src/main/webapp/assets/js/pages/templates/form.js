@@ -14,12 +14,19 @@ var Form = function(){
 //	};
 	
 	confirmForm.bind("click", function(){
-		var dadosParaAtualizar = "{ 'nomeCompleto': '" + $("#nomeCompleto").val() + "', 'cpf': '" + $("#cpf").val() + "', 'dataNascimento':'" + $("#dataNascimento").val() + "'}";
+		var dadosParaAtualizar = { 
+				nomeCompleto: $("#nomeCompleto").val() ,
+				cpf:  $("#cpf").val() ,
+				dataNascimento: $("#dataNascimento").val()
+			};
+		
+		var dadosParaAtualizarStr = JSON.stringify(dadosParaAtualizar);
 		
 		$.ajax({
 			url: utils.buildURL("/usuario/" + userId), 
 			method: "POST",
-			data: dadosParaAtualizar
+			contentType: 'application/json',
+			data: dadosParaAtualizarStr
 		});
 	});
 	

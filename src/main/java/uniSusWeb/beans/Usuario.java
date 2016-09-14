@@ -1,5 +1,6 @@
 package uniSusWeb.beans;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -20,6 +21,8 @@ public class Usuario extends BeanAbstrato{
 	private List<Telefones> telefones;
 	@Column(name="cpf")
 	private String cpf;
+	
+	private Date dataNascimento;
 	
 	// chaves estrangeiras
 	@OneToOne
@@ -52,5 +55,17 @@ public class Usuario extends BeanAbstrato{
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	public Endereco getEnderecoResidencial() {
+		return enderecoResidencial;
+	}
+	public void setEnderecoResidencial(Endereco enderecoResidencial) {
+		this.enderecoResidencial = enderecoResidencial;
 	}
 }
