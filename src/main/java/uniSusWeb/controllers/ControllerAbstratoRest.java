@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.model.Modelo;
 
-public abstract class ControllerRest <T extends BeanAbstrato> extends ControllerAbstrato{
+public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends ControllerAbstrato{
 	@GetMapping("/{id}")
 	public ResponseEntity<T> obter(@PathVariable Long id) throws Exception{
 		Modelo<T> modelo = this.obterModelo();
@@ -55,6 +55,7 @@ public abstract class ControllerRest <T extends BeanAbstrato> extends Controller
 	@PostMapping("/{id}")
 	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody T bean){
 		Modelo<T> modelo = obterModelo();
+		bean.setId(id);
 		modelo.atualizar(bean);
 		
 		return new ResponseEntity(HttpStatus.OK);

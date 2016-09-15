@@ -1,4 +1,4 @@
-package uniSusWeb.controllers;
+package uniSusWeb.controllersRest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import uniSusWeb.beans.Registro;
+import uniSusWeb.controllers.ControllerAbstrato;
 import uniSusWeb.model.ModeloRegistro;
 
+// FIXME: Refactor completo
 @Controller
 @RequestMapping("Register")
 public class ControllerRegistro extends ControllerAbstrato {

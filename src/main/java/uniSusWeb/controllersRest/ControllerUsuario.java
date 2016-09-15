@@ -1,4 +1,4 @@
-package uniSusWeb.controllers;
+package uniSusWeb.controllersRest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
 import uniSusWeb.beans.UsuarioComum;
+import uniSusWeb.controllers.ControllerAbstratoRest;
 import uniSusWeb.dtos.RegistroDTO;
 import uniSusWeb.model.Modelo;
 import uniSusWeb.model.ModeloRegistro;
@@ -27,14 +28,14 @@ import uniSusWeb.utils.ConversorParaDto;
 
 @Controller
 @RequestMapping("/usuario")
-public class ControllerUsuario extends ControllerRest<Usuario> {
+public class ControllerUsuario extends ControllerAbstratoRest<Usuario> {
 
-	@RequestMapping("/editar/{id}")
-	public ModelAndView editar(@PathVariable Long id){
-			ModelAndView editPage = new ModelAndView("templateTiles/form");
-			editPage.addObject("userId", id);
-			return editPage;
-	}
+//	@RequestMapping("/editar/{id}")
+//	public ModelAndView editar(@PathVariable Long id){
+//			ModelAndView editPage = new ModelAndView("templateTiles/form");
+//			editPage.addObject("userId", id);
+//			return editPage;
+//	}
 	
 	@RequestMapping("/{id}/Register")
 	public ResponseEntity<?> obterRegistros(@PathVariable(value = "id") long id){

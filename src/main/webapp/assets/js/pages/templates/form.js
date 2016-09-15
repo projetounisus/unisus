@@ -1,35 +1,43 @@
-/**
- * 
- */
-
 var Form = function(){
-	var userId = $("#userId").val();
-	var form = $("#formDiv");
-	var inputs = form.find("input");
-	var confirmForm = $("#confirmForm");
+	var nomeObjeto = $("#nomeObjeto").val();
+	var idObjeto = $("#idObjeto").val();
+	var $confirmForm = $("#confirmForm");
+	var $formDiv = $("#formDivContainer");
 	
-//	var dadoParaAtualizar = {nome: $("#nomeCompleto").value,
-//			cpf: $("#cpf").value,
-//			dataNascimento: $("#dataNascimento").value
-//	};
-	
-	confirmForm.bind("click", function(){
-		var dadosParaAtualizar = { 
-				nomeCompleto: $("#nomeCompleto").val() ,
-				cpf:  $("#cpf").val() ,
-				dataNascimento: $("#dataNascimento").val()
-			};
+	var construirDto = function(inputs){
+		var dto = {};
 		
-		var dadosParaAtualizarStr = JSON.stringify(dadosParaAtualizar);
+		$.each(inputs, function(index, current){
+			var $current = $(current);
+			dto[current.name] = $current.val();
+		});
+		
+		return dto;
+	}
+	
+	var construirForm = function(){
+		$.ajax({
+			url:utils.buildURL("/" + nomeObjeto + "/form/" + idObjeto),
+			success: function(page){
+				$formDiv.append(page);
+			}
+		});
+	}
+	
+	$confirmForm.bind("click", function(){
+		var inputs = $formDiv.find("input");
+		var dto = construirDto(inputs);
+		var dadosParaAtualizarStr = JSON.stringify(dto);
 		
 		$.ajax({
-			url: utils.buildURL("/usuario/" + userId), 
+			url: utils.buildURL("/" + nomeObjeto + "/" + idObjeto), 
 			method: "POST",
 			contentType: 'application/json',
 			data: dadosParaAtualizarStr
 		});
 	});
 	
+	construirForm();
 };
 
 $(document).ready(Form);
