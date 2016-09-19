@@ -15,15 +15,6 @@ var Form = function(){
 		return dto;
 	}
 	
-	var construirForm = function(){
-		$.ajax({
-			url:utils.buildURL("/" + nomeObjeto + "/form/" + idObjeto),
-			success: function(page){
-				$formDiv.append(page);
-			}
-		});
-	}
-	
 	$confirmForm.bind("click", function(){
 		var inputs = $formDiv.find("input");
 		var dto = construirDto(inputs);
@@ -36,8 +27,6 @@ var Form = function(){
 			data: dadosParaAtualizarStr
 		});
 	});
-	
-	construirForm();
 };
 
 $(document).ready(Form);

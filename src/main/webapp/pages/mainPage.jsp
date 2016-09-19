@@ -1,35 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 
-<!DOCTYPE html>
+<script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>"
+	type="text/javascript"></script>
 
-<html>
-  <head>
-    <title>UniSus</title>
-	 <%@ include file="/pages/templateTiles/defaultHead.jsp" %>
+<script src="<c:url value="/assets/js/pages/mainPage.js"/>"
+	type="text/javascript"></script>
 
-    <script src="<c:url value="/assets/js/3rdParty/handlebars-v4.0.5.js"/>" type="text/javascript"></script>
-    
-    <script src="<c:url value="/assets/js/pages/mainPage.js"/>" type="text/javascript"></script>
+<link href="<c:url value="/assets/css/pages/mainPage.css"/>"
+	rel="stylesheet" type="text/css" />
+<link href="<c:url value="/assets/css/pages/templates/register.css"/>"
+	rel="stylesheet" type="text/css" />
 
-    <link href="<c:url value="/assets/css/pages/mainPage.css"/>" rel="stylesheet" type="text/css"/>
-    <link href="<c:url value="/assets/css/pages/templates/register.css"/>" rel="stylesheet" type="text/css"/>
-  </head>
+<div class="centered-div-horizontal">
+	<div>
+		<h3>Registros Recentes</h3>
+	</div>
+	
+	<input type="hidden" id="userId" value="${userId}"/>
+	
+	<div id="registerListContainer" class="register-list-container">
 
-  <input type="hidden" value="${userId}" id="userId"/>
-
-  <body>
-   	<%@ include file="/pages/templateTiles/defaultHeader.jsp" %>
-   	<div class="centered-div-horizontal">
-      <div>
-        <h3>Registros Recentes</h3>
-      </div>
-
-      <div id="registerListContainer" class="register-list-container">
-
-        <script id="registersList" type="text/x-handlebars-template">
+		<script id="registersList" type="text/x-handlebars-template">
           {{#each register}}
             <div class="box box-primary register-container">
               <h3><span>{{nome}}</span></h3>
@@ -49,10 +44,8 @@
                 </div>
               </div>
             </div>
-          {{/each}}
-        </script>
-      </div>
+          {{/	each}}
+		</script>
+	</div>
 
-    </div>
-  </body>
-</html>
+</div>

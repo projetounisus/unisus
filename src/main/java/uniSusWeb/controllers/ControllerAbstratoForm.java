@@ -3,6 +3,7 @@ package uniSusWeb.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.tiles.Attribute;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,25 +40,25 @@ public abstract class ControllerAbstratoForm <T extends BeanAbstrato> extends Be
 		return beansParaForms;
 	}
 	
-	@RequestMapping("/form/{id}")
-	public ModelAndView obterForm(@PathVariable long id){
-		String nomeDoForm = this.beansParaForms.get(this.tipoGenerico);
-		String pathDoForm = String.format(Constants.PREFIXO_PATH_FORMS + "/%s", nomeDoForm);
-		ModelAndView form = new ModelAndView(pathDoForm);
-		form.addObject("objectId", id);
-		return form; 
-	}
-	
 	protected abstract String obterNomeClassObjeto();
+	
+	protected abstract String obterPathForm();
 	
 	@RequestMapping("/editar/{id}")
 	public ModelAndView obterTemplateForm(@PathVariable long id){
-		String templateName = Constants.PREFIXO_PATH_TEMPLATE_PAGES + "/formTemplate";
+		//TODO: sobrescrever nome do form na classe filha
+		String templateName = "formTemplate";
 		
 		ModelAndView templateForm = new ModelAndView(templateName);
 		templateForm.addObject("idObjeto", id);
 		
 		String nomeClassObjeto = this.obterNomeClassObjeto();
+		String pathForm = this.obterPathForm();
+		
+		Attribute formFields = new Attribute(); 
+		formFields.setValue(pathForm);
+		
+		templateForm.addObject("formFields", formFields);
 		templateForm.addObject("nomeObjeto", nomeClassObjeto);
 		
 		return templateForm;
