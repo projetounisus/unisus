@@ -3,6 +3,8 @@ package uniSusWeb.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.tiles.Attribute;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.beans.Endereco;
 import uniSusWeb.beans.Usuario;
 import uniSusWeb.constants.Constants;
+import uniSusWeb.utils.ModelAndViewUtils;
 
 public abstract class ControllerAbstratoForm <T extends BeanAbstrato> extends BeanAbstrato{
 	public ControllerAbstratoForm() {		
@@ -44,9 +47,10 @@ public abstract class ControllerAbstratoForm <T extends BeanAbstrato> extends Be
 	
 	protected abstract String obterPathForm();
 	
+	protected abstract String obterTituloForm();
+	
 	@RequestMapping("/editar/{id}")
-	public ModelAndView obterTemplateForm(@PathVariable long id){
-		//TODO: sobrescrever nome do form na classe filha
+	public ModelAndView obterTemplateForm(@PathVariable long id, HttpSession sessao){
 		String templateName = "formTemplate";
 		
 		ModelAndView templateForm = new ModelAndView(templateName);
@@ -61,7 +65,12 @@ public abstract class ControllerAbstratoForm <T extends BeanAbstrato> extends Be
 		templateForm.addObject("formFields", formFields);
 		templateForm.addObject("nomeObjeto", nomeClassObjeto);
 		
-		return templateForm;
+		String tituloForm = this.obterTituloForm();
+		templateForm.addObject("tituloForm", tituloForm);
+		
+		ModelAndView form = ModelAndViewUtils.construirModeloPadronizado(templateForm);
+		
+		return form;
 	}
 	
 	

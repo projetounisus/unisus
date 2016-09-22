@@ -4,23 +4,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
 
+<link href="<c:url value="/assets/css/pages/form.css"/>"
+	rel="stylesheet" type="text/css" />
 
-<div id="formDiv" class="row-fluid form-container">
-	<div class="form-group col-md-4">
+<div id="formUsuario" class="row-fluid formDiv">	
+	<div class="col-md-4">
 		<label>Nome</label> <input type="text" name="nomeCompleto"
-			id="nomeCompleto" />
+			id="nomeCompleto" class="commomForm"/>
 	</div>
 
-	<div class="form-group col-md-4">
-		<label>CPF</label> <input type="text" name="cpf" id="cpf" />
+	<div class="col-md-4">
+		<label>CPF</label> <input type="text" name="cpf" id="cpf" class="commomForm"/>
 	</div>
 
-	<div class="form-group col-md-4s">
+	<div class="col-md-4">
 		<label>Data Nascimento</label> <input type="date"
-			name="dataNascimento" id="dataNascimento" />
-	</div>
-
-	<div class="subForm">
-		<%@ include file="/pages/forms/formEndereco.jsp"%>
+			name="dataNascimento" id="dataNascimento" class="commomForm"/>
 	</div>
 </div>
+
+<%@ include file="/pages/forms/formEndereco.jsp"%>

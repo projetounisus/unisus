@@ -8,10 +8,14 @@
 
 <script src="<c:url value="/assets/js/pages/templates/form.js"/>" type="text/javascript"></script>
 
+<link href="<c:url value="/assets/css/pages/templates/formStyle.css"/>"
+	rel="stylesheet" type="text/css" />
+
 <input type="hidden" value="${idObjeto}" id="idObjeto"/>
 <input type="hidden" value="${nomeObjeto}" id="nomeObjeto"/>
 
-<div>	
+<div class = "box row">	
+	<h2><span>${tituloForm}</span></h2>
 	<tiles:insertAttribute name="formFields" value="${formFields}"/>
-	<button type="button" id="confirmForm">OK</button>
+	<button type="button" id="confirmForm" class="btn btn-primary btn-block btn-large col-md-2">OK</button>
 </div>

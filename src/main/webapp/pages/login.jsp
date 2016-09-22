@@ -4,10 +4,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page isELIgnored="false" %>
     
-<link href="<c:url value="/assets/css/pages/login.css"/>" rel="stylesheet" type="text/css"/>
+<link href="<c:url value="/assets/css/pages/form.css"/>" rel="stylesheet" type="text/css"/>
 
 <div class="centered-div">
-	<h1>UniCadSus</h1>
+	<h1>UniCad</h1>
 	<form method="post" action="login">
 		<input type="text" name="nomeUsuario" placeholder="nome do usário"/>
 		<input type="password" name="senhaUsuario" placeholder="senha" />

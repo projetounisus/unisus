@@ -21,5 +21,11 @@ public class ControllerUsuarioForm extends ControllerAbstratoForm<Usuario> {
 		// TODO Auto-generated method stub
 		return Constants.PREFIXO_PATH_FORMS + "/formUsuario";
 	}
+
+	@Override
+	protected String obterTituloForm() {
+		// TODO Auto-generated method stub
+		return "Usuário";
+	}
 	
 }

@@ -12,15 +12,11 @@
 
 <link href="<c:url value="/assets/css/pages/mainPage.css"/>"
 	rel="stylesheet" type="text/css" />
-<link href="<c:url value="/assets/css/pages/templates/register.css"/>"
-	rel="stylesheet" type="text/css" />
 
 <div class="centered-div-horizontal">
 	<div>
 		<h3>Registros Recentes</h3>
 	</div>
-	
-	<input type="hidden" id="userId" value="${userId}"/>
 	
 	<div id="registerListContainer" class="register-list-container">
 
