@@ -14,6 +14,7 @@ import uniSusWeb.beans.Usuario;
 import uniSusWeb.model.Modelo;
 import uniSusWeb.model.ModeloLogin;
 import uniSusWeb.model.ModeloUsuario;
+import uniSusWeb.utils.ModelAndViewUtils;
 
 @Controller
 @RequestMapping
@@ -25,11 +26,8 @@ public class ControllerUniSusWeb extends ControllerAbstrato{
 		if(usuario == null)
 			return new ModelAndView("login");
 		
-		Usuario usuarioLogado = (Usuario)usuario;
-		ModelAndView mainPage = new ModelAndView("mainPage");
-		mainPage.addObject("userId", usuarioLogado.getId());
-		mainPage.addObject("userName", usuarioLogado.getLogin().getNomeUsuario());
-		
+		ModelAndView mainPaegeModel = new ModelAndView("mainPage");
+		ModelAndView mainPage = ModelAndViewUtils.construirModeloPadronizado(mainPaegeModel);
 		return mainPage;
 	}
 
