@@ -7,8 +7,8 @@
 <link href="<c:url value="/assets/css/pages/form.css"/>"
 	rel="stylesheet" type="text/css" />
 
-<div id="formEndereco" class="row-fluid formDiv">	
-	<div class="col-md-1">
+<div id="formEndereco" class="row-fluid formDiv" name="endereco">	
+	<div class="col-md-1 inputContainer">
 		<label>UF</label> 
 		<c:import url="/pages/templateTiles/inputTemplates/ufSelect.jsp">
 			<c:param name="name" value="estado"/>
@@ -17,17 +17,25 @@
 		</c:import>
 	</div>
 	
-	<div class="col-md-3">
+	<div class="col-md-3 inputContainer">
 		<label>Cidade</label> <input type="text" name="cidade" id="cidade" class="commomForm"/>
 	</div>
 
 
-	<div class="col-md-4">
+	<div class="col-md-3 inputContainer">
 		<label>Bairro</label> <input type="text" name="bairro" id="bairro" class="commomForm" />
 	</div>
 
 
-	<div class="col-md-4">
+	<div class="col-md-4 inputContainer">
 		<label>Rua</label> <input type="text" name="rua" id="rua" class="commomForm"/>
+	</div>
+	
+	<div class="col-md-1 inputContainer">
+		<label>Numero</label> <input type="number" name="numero" id="numero" class="commomForm"/>
+	</div>
+	
+	<div class="inputContainer">
+		<input type="hidden" name="pais" id="pais" value="Brasil"/>
 	</div>
 </div>

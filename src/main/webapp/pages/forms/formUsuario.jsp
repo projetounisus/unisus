@@ -10,21 +10,21 @@
 <script src="<c:url value="/assets/js/3rdParty/jquery.mask.js"/>" 
 	type="text/javascript"></script>
 
-<div id="formUsuario" class="row-fluid formDiv">	
-	<div class="col-md-4">
+<div id="formUsuario" class="row-fluid formDiv" name="usuario">	
+	<div class="col-md-4 inputContainer">
 		<label>Nome</label> <input type="text" name="nomeCompleto"
 			id="nomeCompleto" class="commomForm"/>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-4 inputContainer">
 		<script type="text/javascript">$("#cpf").mask("000.000.000-00");</script>
 		<label>CPF</label> <input type="text" name="cpf" id="cpf" class="commomForm"/>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-4 inputContainer">
 		<label>Data Nascimento</label> <input type="date"
 			name="dataNascimento" id="dataNascimento" class="commomForm"/>
 	</div>
+	
+	<%@ include file="/pages/forms/formEndereco.jsp"%>
 </div>
-
-<%@ include file="/pages/forms/formEndereco.jsp"%>

@@ -7,6 +7,6 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ page isELIgnored="false" %>
 
-<div class="form">
+<div id="form">
 	<tiles:insertAttribute name="content"/>
 </div>

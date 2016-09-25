@@ -27,7 +27,7 @@ public class Usuario extends BeanAbstrato{
 	// chaves estrangeiras
 	@OneToOne
 	@JoinColumn(name="endereco_idendereco")
-	private Endereco enderecoResidencial;
+	private Endereco endereco;
 	@OneToOne
 	@JoinColumn(name="id_login")
 	private LoginUsuario login;
@@ -62,10 +62,10 @@ public class Usuario extends BeanAbstrato{
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public Endereco getEnderecoResidencial() {
-		return enderecoResidencial;
+	public Endereco getEndereco() {
+		return endereco;
 	}
-	public void setEnderecoResidencial(Endereco enderecoResidencial) {
-		this.enderecoResidencial = enderecoResidencial;
+	public void setEndereco(Endereco enderecoResidencial) {
+		this.endereco = enderecoResidencial;
 	}
 }
