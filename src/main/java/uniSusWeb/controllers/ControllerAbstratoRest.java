@@ -19,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import uniSusWeb.beans.BeanAbstrato;
-import uniSusWeb.model.Modelo;
+import uniSusWeb.model.DAO;
 
 public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends ControllerAbstrato{
 	@GetMapping("/{id}")
 	public ResponseEntity<T> obter(@PathVariable Long id) throws Exception{
-		Modelo<T> modelo = this.obterModelo();
+		DAO<T> modelo = this.obterModelo();
 		
 		T resultado = modelo.obterPorId(id);
 		ResponseEntity<T> resposta = new ResponseEntity<T>(resultado, HttpStatus.OK);
@@ -34,7 +34,7 @@ public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends Co
 	
 	@GetMapping
 	public ResponseEntity<?> listar(){
-		 Modelo<T> modelo = obterModelo();
+		 DAO<T> modelo = obterModelo();
 		 
 		 List<T> lista = modelo.listar();
 		 ResponseEntity<List<T>> resultado = new ResponseEntity<List<T>>(lista, HttpStatus.OK);
@@ -44,7 +44,7 @@ public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends Co
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deletar(@PathVariable Long id) throws Exception{
-		Modelo<T> modelo = obterModelo();
+		DAO<T> modelo = obterModelo();
 		
 		T bean = modelo.obterPorId(id);
 		modelo.deletar(bean);
@@ -54,7 +54,7 @@ public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends Co
 	
 	@PostMapping("/{id}")
 	public ResponseEntity<?> atualizar(@PathVariable long id, @RequestBody T bean){
-		Modelo<T> modelo = obterModelo();
+		DAO<T> modelo = obterModelo();
 		bean.setId(id);
 		modelo.atualizar(bean);
 		
@@ -63,11 +63,11 @@ public abstract class ControllerAbstratoRest <T extends BeanAbstrato> extends Co
 	
 	@PostMapping
 	public ResponseEntity<?> criar(@RequestBody T bean){
-		Modelo<T> modelo = this.obterModelo();
+		DAO<T> modelo = this.obterModelo();
 		modelo.inserir(bean);
 		
 		return new ResponseEntity(HttpStatus.OK);
 	}
 	
-	protected abstract Modelo<T> obterModelo();
+	protected abstract DAO<T> obterModelo();
 }

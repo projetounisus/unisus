@@ -8,7 +8,7 @@ import uniSusWeb.beans.Registro;
 import uniSusWeb.beans.Usuario;
 
 @Service("modeloUsuario")
-public class ModeloUsuario extends Modelo {
+public class ModeloUsuario extends DAO {
 
 	@Override
 	protected String obterQueryDeletar() {

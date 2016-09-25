@@ -31,6 +31,5 @@ uniSusWeb\controllersRest\ControllerLogin.class
 uniSusWeb\beans\Telefones.class
 uniSusWeb\beans\DadosMedicosAuxiliares.class
 uniSusWeb\controllers\ControllerAbstrato.class
-uniSusWeb\model\DAO.class
 uniSusWeb\controllers\ControllerAutorizacao.class
 uniSusWeb\constants\Constants.class

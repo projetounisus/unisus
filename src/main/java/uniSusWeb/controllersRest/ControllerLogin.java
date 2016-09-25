@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniSusWeb.beans.LoginUsuario;
 import uniSusWeb.controllers.ControllerAbstratoRest;
-import uniSusWeb.model.Modelo;
+import uniSusWeb.model.DAO;
 import uniSusWeb.model.ModeloLogin;
 
 @Controller
@@ -13,7 +13,7 @@ import uniSusWeb.model.ModeloLogin;
 public class ControllerLogin extends ControllerAbstratoRest<LoginUsuario>{
 
 	@Override
-	protected Modelo<LoginUsuario> obterModelo() {
+	protected DAO<LoginUsuario> obterModelo() {
 		return new ModeloLogin();
 	}
 	

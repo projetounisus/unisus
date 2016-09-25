@@ -19,7 +19,7 @@ import uniSusWeb.beans.Usuario;
 import uniSusWeb.beans.UsuarioComum;
 import uniSusWeb.controllers.ControllerAbstratoRest;
 import uniSusWeb.dtos.RegistroDTO;
-import uniSusWeb.model.Modelo;
+import uniSusWeb.model.DAO;
 import uniSusWeb.model.ModeloRegistro;
 import uniSusWeb.model.ModeloUsuario;
 import uniSusWeb.utils.ConversorParaDto;
@@ -56,7 +56,7 @@ public class ControllerUsuario extends ControllerAbstratoRest<Usuario> {
 	private ModeloRegistro modeloRegistros;
 
 	@Override
-	protected Modelo<Usuario> obterModelo() {
+	protected DAO<Usuario> obterModelo() {
 		// TODO Auto-generated method stub
 		return new ModeloUsuario();
 	}

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.beans.LoginUsuario;
 import uniSusWeb.beans.Usuario;
-import uniSusWeb.model.Modelo;
+import uniSusWeb.model.DAO;
 import uniSusWeb.model.ModeloLogin;
 import uniSusWeb.model.ModeloUsuario;
 import uniSusWeb.utils.ModelAndViewUtils;

@@ -12,7 +12,7 @@ import uniSusWeb.beans.BeanAbstrato;
 import uniSusWeb.beans.LoginUsuario;
 
 @Service("modeloLogin")
-public class ModeloLogin extends Modelo<LoginUsuario>{
+public class ModeloLogin extends DAO<LoginUsuario>{
 
 	@Override
 	protected String obterQueryDeletar() {

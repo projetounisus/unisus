@@ -13,7 +13,7 @@ import uniSusWeb.beans.Usuario;
 import uniSusWeb.beans.UsuarioComum;
 
 @Service("modeloRegistro")
-public class ModeloRegistro extends Modelo<Registro> {
+public class ModeloRegistro extends DAO<Registro> {
 
 	@Override
 	protected String obterQueryDeletar() {
