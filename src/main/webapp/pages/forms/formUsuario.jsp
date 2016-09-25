@@ -6,6 +6,9 @@
 
 <link href="<c:url value="/assets/css/pages/form.css"/>"
 	rel="stylesheet" type="text/css" />
+	
+<script src="<c:url value="/assets/js/3rdParty/jquery.mask.js"/>" 
+	type="text/javascript"></script>
 
 <div id="formUsuario" class="row-fluid formDiv">	
 	<div class="col-md-4">
@@ -14,6 +17,7 @@
 	</div>
 
 	<div class="col-md-4">
+		<script type="text/javascript">$("#cpf").mask("000.000.000-00");</script>
 		<label>CPF</label> <input type="text" name="cpf" id="cpf" class="commomForm"/>
 	</div>
 

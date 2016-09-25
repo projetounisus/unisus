@@ -2,7 +2,7 @@ var Form = function(){
 	var nomeObjeto = $("#nomeObjeto").val();
 	var idObjeto = $("#idObjeto").val();
 	var $confirmForm = $("#confirmForm");
-	var $formDiv = $("#formDivContainer");
+	var $formDiv = $(".form");
 	
 	var construirDto = function(inputs){
 		var dto = {};
