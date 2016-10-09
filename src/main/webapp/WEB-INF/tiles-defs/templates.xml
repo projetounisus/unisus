@@ -22,6 +22,10 @@
 		<put-attribute name="content" value="/pages/templateTiles/formTemplate.jsp"/>
 	</definition>
 	
+	<definition name="/forms/formRegistro" extends="defaultTemplate">
+		<put-attribute name="content" value="/pages/forms/formRegistro.jsp"/>
+	</definition>
+	
 	<definition name="mainPage" extends="defaultTemplate">
 		<put-attribute name="content" value="/pages/mainPage.jsp"/>
 	</definition>

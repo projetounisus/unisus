@@ -7,11 +7,12 @@
 <link href="<c:url value="/assets/css/pages/form.css"/>" rel="stylesheet" type="text/css"/>
 
 <div class="centered-div">
-	<h1>UniCad</h1>
+	<h1>UniCad teste</h1>
 	<form method="post" action="login">
-		<input type="text" name="nomeUsuario" placeholder="nome do usÃ¡rio"/>
+		<input type="text" name="nomeUsuario" placeholder="nome do usuário"/>
 		<input type="password" name="senhaUsuario" placeholder="senha" />
 		<button type="submit" class="btn btn-primary btn-block btn-large">Logar</button>
 		<span class="alert-text"><h4>${respostaLogin}</h4></span>
 	</form>
 </div>
+-
