@@ -46,7 +46,6 @@ public class ControllerUniSusWeb extends ControllerAbstrato{
 				ModeloUsuario modeloUsuario = new ModeloUsuario();
 				Usuario usuario = modeloUsuario.obterUsuarioPorLogin(loginPorNome);
 				
-				//Usuario usuario = loginPorNome.getUsuario();
 				sessao.setAttribute("user", usuario);
 				ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:/");
 				return respostaLoginEfetuado;
@@ -57,8 +56,11 @@ public class ControllerUniSusWeb extends ControllerAbstrato{
 			return respostaLoginFalhou;
 		
 		}catch(Exception e){
+			// TODO: Não deve ser devolvido na resposta do login, 
+			// deve ser tratado pelo handler de exceção global
+			
 			ModelAndView respostaLoginFalhou = new ModelAndView();
-			respostaLoginFalhou.addObject("respostaLogin", e.getMessage());
+			respostaLoginFalhou.addObject("respostaLogin", e.getMessage());  
 			return respostaLoginFalhou;
 		}
 	}

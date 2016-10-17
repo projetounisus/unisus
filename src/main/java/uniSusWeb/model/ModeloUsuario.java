@@ -52,19 +52,15 @@ public class ModeloUsuario extends DAO<Usuario> {
 	public Usuario obterUsuarioPorLogin(LoginUsuario login){
 		Session sessao = this.obterSessaoBanco();
 		CriteriaBuilder criteriaBuilder = sessao.getCriteriaBuilder();
-		
 		CriteriaQuery<Usuario> query = criteriaBuilder.createQuery(Usuario.class);
+		
 		Root<Usuario> usuarioRoot = query.from(Usuario.class);
 		
 		query.select(usuarioRoot);
 		query.where(criteriaBuilder.equal(usuarioRoot.get("login"), login.getId()));
 		
 		List<Usuario> resultList = sessao.createQuery(query).getResultList();
+		
 		return resultList.get(0);
 	}
-	
-	public void criarUsuarioTeste(Usuario novoUsuario){
-		
-	}
-
 }
