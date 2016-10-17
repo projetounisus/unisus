@@ -14,7 +14,7 @@ public class ControllerLogin extends ControllerAbstratoRest<LoginUsuario>{
 
 	@Override
 	protected DAO<LoginUsuario> obterModelo() {
+		// TODO Auto-generated method stub
 		return new ModeloLogin();
 	}
-	
 }

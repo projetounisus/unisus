@@ -12,14 +12,6 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">false</property>
-		<property name="hbm2ddl.auto">update</property>
-		
-		<mapping class="uniSusWeb.beans.LoginUsuario"></mapping>
-		<mapping class="uniSusWeb.beans.Usuario"></mapping>
-		<mapping class="uniSusWeb.beans.Endereco"></mapping>
-		<mapping class="uniSusWeb.beans.Telefones"></mapping>
-		<mapping class="uniSusWeb.beans.UnidadeSaude"></mapping>
-								
-<!-- 		<property name="packagesToScan">uniSusWeb.beans</property>  -->
+<!-- 		<property name="hbm2ddl.auto">create</property> -->
 	</session-factory>
 </hibernate-configuration>

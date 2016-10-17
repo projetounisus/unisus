@@ -39,24 +39,28 @@ public class ControllerUniSusWeb extends ControllerAbstrato{
 		
 		try{
 			loginPorNome = modeloLogin.obterPorNome(nomeUsuario);
+		
+			String usuario_senha = loginPorNome.getSenhaUsuario();
+			
+			if(usuario_senha.equals(senhaUsuario)){
+				ModeloUsuario modeloUsuario = new ModeloUsuario();
+				Usuario usuario = modeloUsuario.obterUsuarioPorLogin(loginPorNome);
+				
+				//Usuario usuario = loginPorNome.getUsuario();
+				sessao.setAttribute("user", usuario);
+				ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:/");
+				return respostaLoginEfetuado;
+			}
+			
+			ModelAndView respostaLoginFalhou = new ModelAndView();
+			respostaLoginFalhou.addObject("respostaLogin", "usuário ou senha incorretos");
+			return respostaLoginFalhou;
+		
 		}catch(Exception e){
 			ModelAndView respostaLoginFalhou = new ModelAndView();
 			respostaLoginFalhou.addObject("respostaLogin", e.getMessage());
 			return respostaLoginFalhou;
 		}
-		
-		String usuario_senha = loginPorNome.getSenhaUsuario();
-		
-		if(usuario_senha.equals(senhaUsuario)){
-			Usuario usuario = loginPorNome.getUsuario();
-			sessao.setAttribute("user", usuario);
-			ModelAndView respostaLoginEfetuado = new ModelAndView("redirect:/");
-			return respostaLoginEfetuado;
-		}
-		
-		ModelAndView respostaLoginFalhou = new ModelAndView();
-		respostaLoginFalhou.addObject("respostaLogin", "usuário ou senha incorretos");
-		return respostaLoginFalhou;
 	}
 
 	private ModeloUsuario userService;	

@@ -195,6 +195,14 @@
       <version>1.2</version>
 	</dependency>
 	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-search-orm</artifactId>
+	    <version>5.5.5.Final</version>
+	</dependency>
+
+	
 	<!-- https://mvnrepository.com/artifact/org.jboss.spec/jboss-javaee-6.0 -->
 	<dependency>
 	    <groupId>org.jboss.spec</groupId>
@@ -247,14 +255,13 @@
 	              </descriptorRefs>
 	          </configuration>
 		</plugin>
-		 
 		<plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-war-plugin</artifactId>
                <version>2.0</version>
                <configuration>
                    <warName>uniSusWeb</warName>
-                   <outputDirectory>/opt/pache-tomcat-7.0.72/webapps</outputDirectory>
+                   <outputDirectory>C:/apache-tomcat-8.5.4/webapps</outputDirectory>
                </configuration>
 		</plugin>
 	</plugins>

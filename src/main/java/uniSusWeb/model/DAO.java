@@ -1,6 +1,8 @@
 package uniSusWeb.model;
 
 import java.util.List;
+import org.hibernate.*;
+import org.hibernate.cfg.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,20 +13,30 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
 import uniSusWeb.beans.BeanAbstrato;
+import uniSusWeb.beans.Endereco;
+import uniSusWeb.beans.LoginUsuario;
+import uniSusWeb.beans.Telefones;
+import uniSusWeb.beans.Usuario;
 
 public abstract class DAO<T extends BeanAbstrato>{
 	
+	private static Session sessaoSingleton;
+	
 	protected Session obterSessaoBanco(){
-		Configuration configuration = new Configuration();
-		configuration.configure();
+		if(sessaoSingleton == null)
+		{
+			Configuration configuration = new Configuration()
+					.addAnnotatedClass(Usuario.class)
+					.addAnnotatedClass(Endereco.class)
+					.addAnnotatedClass(Telefones.class)
+					.addAnnotatedClass(LoginUsuario.class)
+					.configure();
+			
+			SessionFactory buildSessionFactory = configuration.buildSessionFactory();
+			sessaoSingleton = buildSessionFactory.openSession();
+		}
 		
-		StandardServiceRegistryBuilder standardServiceBuilder = configuration.getStandardServiceRegistryBuilder();
-		StandardServiceRegistry standardService = standardServiceBuilder.build();
-		
-		SessionFactory buildSessionFactory = configuration.buildSessionFactory(standardService);
-		Session session = buildSessionFactory.openSession();
-		
-		return session;
+		return sessaoSingleton;
 	}
 	
 	protected void fecharSessaoBanco(Session session) {
@@ -109,6 +121,9 @@ public abstract class DAO<T extends BeanAbstrato>{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see uniSusWeb.model.IDAO#obterPorNome(java.lang.String)
+	 */
 	public T obterPorNome(String nome) throws Exception{
 		Session sessao = this.obterSessaoBanco();
 		Transaction transacao = sessao.beginTransaction();
