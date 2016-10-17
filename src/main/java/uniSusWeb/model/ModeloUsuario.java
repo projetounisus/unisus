@@ -2,7 +2,14 @@ package uniSusWeb.model;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
@@ -44,10 +51,15 @@ public class ModeloUsuario extends DAO<Usuario> {
 	
 	public Usuario obterUsuarioPorLogin(LoginUsuario login){
 		Session sessao = this.obterSessaoBanco();
-		Query query = sessao.createQuery("FROM Usuario WHERE login = :idLogin");
-		query.setParameter("idLogin", login.getId());
+		CriteriaBuilder criteriaBuilder = sessao.getCriteriaBuilder();
 		
-		List<Usuario> resultList = query.getResultList();
+		CriteriaQuery<Usuario> query = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> usuarioRoot = query.from(Usuario.class);
+		
+		query.select(usuarioRoot);
+		query.where(criteriaBuilder.equal(usuarioRoot.get("login"), login.getId()));
+		
+		List<Usuario> resultList = sessao.createQuery(query).getResultList();
 		return resultList.get(0);
 	}
 	

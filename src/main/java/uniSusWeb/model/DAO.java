@@ -26,6 +26,7 @@ public abstract class DAO<T extends BeanAbstrato>{
 		if(sessaoSingleton == null)
 		{
 			Configuration configuration = new Configuration()
+					.addAnnotatedClass(BeanAbstrato.class)
 					.addAnnotatedClass(Usuario.class)
 					.addAnnotatedClass(Endereco.class)
 					.addAnnotatedClass(Telefones.class)
@@ -60,7 +61,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 		sessao.delete(bean);
 		
 		transacao.commit();
-		this.fecharSessaoBanco(sessao);
 	}
 
 	public void atualizar(T bean){
@@ -72,7 +72,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 		query.executeUpdate();
 		
 		transacao.commit();
-		this.fecharSessaoBanco(sessao);
 	}
 
 	public List<T> listar(){
@@ -81,7 +80,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 		String hql = obterQueryAtualizar();
 		List<T> lista = sessao.createQuery(hql).getResultList();
 		
-		this.fecharSessaoBanco(sessao);
 		return lista;
 	}
 	
@@ -92,14 +90,12 @@ public abstract class DAO<T extends BeanAbstrato>{
 		sessao.save(bean);
 		
 		transacao.commit();
-		this.fecharSessaoBanco(sessao);
 	}
 	
 	//TODO: Extrair mensagens de erro
 	
 	public T obterPorId(long id) throws Exception{
 		Session sessao = this.obterSessaoBanco();
-		Transaction transacao = sessao.beginTransaction();
 		int PRIMEIRO_ELEMENTO = 0;
 		
 		String hql = obterQueryObterPorId();
@@ -107,9 +103,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 		Query query = sessao.createQuery(hql);
 		query.setParameter("id", id);
 		List lista = query.getResultList();
-
-		transacao.commit();
-		this.fecharSessaoBanco(sessao);
 		
 		if(lista.size() < 1){
 			throw new Exception("Id não foi encontrado");
@@ -126,7 +119,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 	 */
 	public T obterPorNome(String nome) throws Exception{
 		Session sessao = this.obterSessaoBanco();
-		Transaction transacao = sessao.beginTransaction();
 		int PRIMEIRO_ELEMENTO = 0;
 		
 		String hql = obterQueryObterPorNome();
@@ -134,9 +126,6 @@ public abstract class DAO<T extends BeanAbstrato>{
 		Query query = sessao.createQuery(hql);
 		query.setParameter("nome", nome);
 		List lista = query.getResultList();
-		
-		transacao.commit();
-		this.fecharSessaoBanco(sessao);
 		
 		if(lista.size() < 1){
 			throw new Exception("Nome não foi encontrado");

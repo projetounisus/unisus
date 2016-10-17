@@ -1,5 +1,7 @@
 package uniSusWeb.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="login" )
-public class LoginUsuario extends BeanAbstrato{
+public class LoginUsuario extends BeanAbstrato implements Serializable{
 	private String senhaUsuario;
 	private String nomeUsuario;
 	
