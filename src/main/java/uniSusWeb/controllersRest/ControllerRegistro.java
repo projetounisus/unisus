@@ -21,9 +21,6 @@ public class ControllerRegistro extends ControllerAbstrato {
 	//FIXME: será substituido por mesma função no UserController
 	@RequestMapping("/profissional/{idProfissional}")
 	public ResponseEntity<?> obterRegistrosPorProfissional(@RequestParam Long idProfissional){
-		//List<Registro> registros = modeloRegistro.listarPorProfissional(Arrays.asList(idProfissional));
-		//return new ResponseEntity(registros, HttpStatus.OK);
-		
 		return new ResponseEntity("Dados mockados", HttpStatus.OK);
 	}
 
