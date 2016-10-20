@@ -1,5 +1,6 @@
 package uniSusWeb.beans;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,21 +15,22 @@ import uniSusWeb.constants.Constants.UnidadeAtendimentoTipo;
 @Table(name="unidade_saude")
 public class UnidadeSaude extends BeanAbstrato {
 	
-	@Column(name="nome")
+	
 	private String nome;
 	private UnidadeAtendimentoTipo tipo;
 	
 	//chaves estrangeiras
-	@OneToOne
-	@JoinColumn(name="endereco_idendereco")
 	private Endereco endereco;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="endereco")
 	public Endereco getEndereco() {
 		return endereco;
 	}
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	@Column(name="nome")
 	public String getNome() {
 		return nome;
 	}
